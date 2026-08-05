@@ -1,0 +1,43 @@
+% !TEX root = ../main.tex
+\section{The Weak Interaction and Neutrino Flavours}
+\label{sec:sm}
+
+The previous section described various experimental discoveries of different neutrino types, and ended with the fact these types, or flavours, should change flavour as they travel. To understand why this fact is so important, we must motivate how the neutrino enters the Standard Model (SM), describe how it behaves in this theory, and explain what is meant by different neutrino flavours. This brief section follows Refs.~\cite{CottinghamGreenwood2007,Thomson2013,Zuber2020}.
+
+Neutrinos enter the SM as neutral leptons, and there exists a flavour for each of the charged leptons; the electron, muon and tau neutrinos, corresponding to the electron, muon and tau. They carry neither electric nor colour charge, meaning they only couple to and experience the weak interaction, and therefore can only be created or destroyed via the weak force. As briefly mentioned above, there are many sources of neutrinos that can be measured on Earth; these include stellar, supernovae and cosmic ray sources, and on Earth, sources such as particle accelerators and fission reactors. Since the weak force has weak coupling, the vast majority of these neutrinos pass through matter without interacting.
+
+There are two neutrino interaction types in the SM; charged-current (CC) and neutral-current (NC). The vertices for such interactions can be described by the current:
+\begin{equation}
+    J^{\mu}\sim\overline{u}(p')\,\gamma^{\mu}\tfrac{1}{2}\left(1-\gamma^{5}\right)u(p),
+    \label{eq:charged-current}
+\end{equation}
+where $u(p)$ and $u(p')$ are Dirac spinors representing the incoming and outgoing fermions and the $\gamma^{k}$ are the Dirac matrices. Expanding this gives a $\frac{1}{2}\overline{u}(p')\gamma^{\mu}u(p)$ term, which is the vector current, and a $\frac{1}{2}\overline{u}(p')\gamma^{\mu}\gamma^{5}u(p)$ term, which is the axial-vector current. This is a vector minus axial-vector combination, that violates parity maximally\footnote{Under parity, the vector and axial-vector components transform oppositely. The relative sign between them flips and V$-$A is mapped to V$+$A. In the Lagrangian, the $V^{2}$ and $A^{2}$ contraction terms are unchanged but the $V\cdot A$ term reverses sign. With this extra term, the Lagrangian describes a different theory after the transformation, and parity is therefore violated. The interference term is as large as it can be, so parity is maximally violated.}.
+The factor $\tfrac{1}{2}\left(1-\gamma^{5}\right)$ is exactly the left-handed chiral projection operator $P_{L}$, which projects out the left-handed chiral components of the field. As a result, only left-handed chiral particles and right-handed chiral antiparticles take part in the weak interaction.
+
+The electroweak unification into an $SU(2)_{L}\times U(1)_{Y}$~\cite{Weinberg1967} gauge theory gives rise to two physical charged gauge bosons, $W^{\pm}$, which mediate CC interactions, and a neutral gauge boson, $Z^{0}$, which mediates NC interactions. The massless photon, $A^{0}$ also emerges from this unification. Figure~\ref{fig:sm-vertices} shows the vertices for CC and NC interactions. Comparing these vertices shows that CC interactions have in the final state the charged lepton with flavour matching that of the incoming neutrino. NC interactions, on the other hand, have no such final state charged lepton. Measuring this charged lepton from CC interactions therefore allows for the identification of the flavour of the incoming neutrino.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{feyn_cc_vertex.pdf}
+        \caption{Charged current}
+        \label{fig:cc-vertex}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{feyn_nc_vertex.pdf}
+        \caption{Neutral current}
+        \label{fig:nc-vertex}
+    \end{subfigure}
+    \caption{Feynman diagrams showing the two neutrino interaction types (leptonic vertices), with
+    time flowing from left to right and $\ell=e,\mu,\tau$. (a) A CC interaction, in which the
+    incoming (anti)neutrino is converted into its corresponding charged lepton counterpart by
+    exchanging a $W^{\pm}$ boson. (b) A NC interaction, in which a
+    $Z^{0}$ is exchanged and the neutrino remains in the final state. No
+    charged lepton is produced, so the flavour of the incoming neutrino cannot be known.
+    Adapted from Ref.~\cite{Booth2021}.}
+    \label{fig:sm-vertices}
+\end{figure}
+

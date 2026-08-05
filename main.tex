@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+% ============================================================
+% main.tex --- Neutrino theory chapter (PhD thesis).
+% Sections live in sections/. Bibliography in main.bib.
+% Build output: build/main.pdf (plan/ is a separate document).
+%
+% This compiles standalone for drafting. When integrated into the
+% full thesis, replace \documentclass{article} with \chapter{} and
+% drop the preamble.
+% ============================================================
+
+% ---- Geometry & typography -------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.15}
+
+% ---- Maths -----------------------------------------------------------------
+\usepackage{amsmath, amssymb}
+% Number equations as (section.subsection.n), resetting each subsection.
+% Equations outside any subsection get (section.0.n).
+\numberwithin{equation}{subsection}
+% Lightweight stand-ins (TeX Live basic lacks braket/dsfont)
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\mathds}[1]{\mathbb{#1}}
+
+% ---- Figures & tables ------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+% ---- Bibliography ----------------------------------------------------------
+\usepackage[numbers,square,sort&compress]{natbib}
+
+% ---- Headers ---------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---- Hyperlinks (load last) -----------------------------------------------
+\usepackage[hidelinks]{hyperref}
+
+% ---- Local shortcuts -------------------------------------------------------
+\newcommand{\numu}{\nu_\mu}
+\newcommand{\nue}{\nu_e}
+\newcommand{\nutau}{\nu_\tau}
+\newcommand{\numubar}{\bar\nu_\mu}
+\newcommand{\nuebar}{\bar\nu_e}
+\newcommand{\dm}[1]{\Delta m^{2}_{#1}}
+\newcommand{\dcp}{\delta_{\rm CP}}
+\newcommand{\PMNS}{U_{\rm PMNS}}
+
+% ---- Title -----------------------------------------------------------------
+\title{Neutrino Theory}
+\author{Oscar Chow}
+\date{}
+
+% ============================================================================
+\begin{document}
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\input{sections/01_history}
+\input{sections/02_standard_model}
+\input{sections/03_oscillations}
+\input{sections/04_spectrum_and_sensitivity}
+\input{sections/05_experimental_landscape}
+
+% ---- Bibliography ----------------------------------------------------------
+\bibliographystyle{unsrtnat}
+\bibliography{main}
+
+\end{document}

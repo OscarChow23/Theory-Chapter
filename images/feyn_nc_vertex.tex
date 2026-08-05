@@ -1,0 +1,19 @@
+\documentclass[border=8pt]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+\newcommand{\nuboth}[1]{\overset{\scriptscriptstyle(-)}{\nu_{#1}}}
+\begin{document}
+\begin{tikzpicture}
+  \begin{feynman}
+    \vertex (i1) at (-2.0, 1.2) {\(\nuboth{\ell}\)};
+    \vertex (a)  at ( 0.0, 0.0);
+    \vertex (f1) at ( 2.0, 1.2) {\(\nuboth{\ell}\)};
+    \vertex (w)  at ( 0.0,-1.9);
+    \diagram*{
+      (i1) -- [fermion] (a) -- [fermion] (f1),
+      (a)  -- [boson, edge label=\(Z^{0}\)] (w),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\end{document}

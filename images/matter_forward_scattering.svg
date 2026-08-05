@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+  <defs>
+    <marker id="fermion-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4"
+            orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#111"/>
+    </marker>
+    <marker id="time-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5"
+            orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 9 4.5 L 0 9 z" fill="#111"/>
+    </marker>
+    <style>
+      .line { fill: none; stroke: #111; stroke-width: 2.2; stroke-linecap: round; }
+      .arrow { fill: none; stroke: #111; stroke-width: 2.2; marker-end: url(#fermion-arrow); }
+      .label { font-family: "Times New Roman", Times, serif; font-size: 24px; font-style: italic; fill: #111; }
+      .time { font-family: "Times New Roman", Times, serif; font-size: 20px; fill: #111; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="300" fill="#fff"/>
+
+  <!-- Time runs from incoming states on the left to outgoing states on the right. -->
+  <text class="time" x="388" y="25">time</text>
+  <path class="line" d="M 438 19 L 525 19" marker-end="url(#time-arrow)"/>
+
+  <!-- Charged-current t-channel with W+ exchange. -->
+  <path class="line" d="M 38 78 L 142 130 L 246 78"/>
+  <path class="line" d="M 38 222 L 142 170 L 246 222"/>
+  <path class="arrow" d="M 86 102 L 121 120"/>
+  <path class="arrow" d="M 163 120 L 198 102"/>
+  <path class="arrow" d="M 86 198 L 121 180"/>
+  <path class="arrow" d="M 163 180 L 198 198"/>
+  <path class="line" d="M 142 130
+                         q 10 5 0 10 q -10 5 0 10
+                         q 10 5 0 10 q -10 5 0 10"/>
+  <text class="label" x="24" y="68">&#x03BD;<tspan baseline-shift="sub" font-size="16">e</tspan></text>
+  <text class="label" x="251" y="70">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="24" y="247">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="247" y="247">&#x03BD;<tspan baseline-shift="sub" font-size="16">e</tspan></text>
+  <text class="label" x="100" y="157">W<tspan baseline-shift="super" font-size="16">+</tspan></text>
+
+  <!-- Charged-current s-channel with W- exchange. -->
+  <path class="line" d="M 320 78 L 386 150"/>
+  <path class="line" d="M 320 222 L 386 150"/>
+  <path class="line" d="M 504 78 L 438 150"/>
+  <path class="line" d="M 504 222 L 438 150"/>
+  <path class="arrow" d="M 345 105 L 370 133"/>
+  <path class="arrow" d="M 370 167 L 345 195"/>
+  <path class="arrow" d="M 454 133 L 479 105"/>
+  <path class="arrow" d="M 479 195 L 454 167"/>
+  <path class="line" d="M 386 150
+                         q 7 -10 14 0 q 7 10 14 0
+                         q 7 -10 14 0 q 7 10 14 0"/>
+  <text class="label" x="300" y="69">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="288" y="250">&#x03BD;&#x0305;<tspan baseline-shift="sub" font-size="16">e</tspan></text>
+  <text class="label" x="507" y="69">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="507" y="250">&#x03BD;&#x0305;<tspan baseline-shift="sub" font-size="16">e</tspan></text>
+  <text class="label" x="395" y="128">W<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+
+  <!-- Neutral-current t-channel with Z0 exchange. -->
+  <path class="line" d="M 612 78 L 716 130 L 820 78"/>
+  <path class="line" d="M 612 222 L 716 170 L 820 222"/>
+  <path class="arrow" d="M 660 102 L 695 120"/>
+  <path class="arrow" d="M 737 120 L 772 102"/>
+  <path class="arrow" d="M 660 198 L 695 180"/>
+  <path class="arrow" d="M 737 180 L 772 198"/>
+  <path class="line" d="M 716 130
+                         q 10 5 0 10 q -10 5 0 10
+                         q 10 5 0 10 q -10 5 0 10"/>
+  <text class="label" x="589" y="68">&#x03BD;<tspan baseline-shift="sub" font-size="16">X</tspan></text>
+  <text class="label" x="825" y="68">&#x03BD;<tspan baseline-shift="sub" font-size="16">X</tspan></text>
+  <text class="label" x="598" y="247">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="825" y="247">e<tspan baseline-shift="super" font-size="16">&#x2212;</tspan></text>
+  <text class="label" x="674" y="157">Z<tspan baseline-shift="super" font-size="16">0</tspan></text>
+</svg>

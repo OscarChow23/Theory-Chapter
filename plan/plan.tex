@@ -1,0 +1,911 @@
+\documentclass[11pt]{article}
+
+% ============================================================
+% plan/plan.tex — Working plan for the neutrino theory chapter.
+% This is NOT the chapter itself. It records the section outline,
+% key equations/topics per section, references flagged from the
+% thesis survey, and running decisions/open questions.
+%
+% Lives in plan/ with its own build/ — completely separate from
+% main.tex (the actual chapter at the repo root).
+%
+% Preamble style borrows from the Y2 progression report.
+% ============================================================
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+% Legacy appendix images are not stored in this planning repository.
+% Draft mode preserves their layout as placeholders and keeps the plan buildable.
+\usepackage[draft]{graphicx}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+\setstretch{1.15}
+
+% Lightweight stand-ins (TeX Live basic lacks braket/dsfont)
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\mathds}[1]{\mathbb{#1}}
+
+\title{Neutrino Theory Chapter — Writing Plan}
+\author{Oscar Chow}
+\date{Started 2026-06-30}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This document is the working plan for the neutrino theory chapter of the thesis. It
+holds the proposed section outline (subject to revision), the key physics content targeted for
+each section, references flagged from the survey of eight NOvA PhD theses, and a running list of
+decisions and review tasks. It lives under \texttt{plan/} and compiles to \texttt{plan/build/}, fully
+independent of the chapter root (\texttt{../main.tex} $\to$ \texttt{../build/main.pdf}).
+\end{abstract}
+
+\tableofcontents
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+% ------------------------------------------------------------
+\section{Chapter goal and scope}
+
+Write the neutrino-theory background chapter of the PhD thesis: standard theory of neutrino
+oscillations, developed enough to support the physics arguments used in later analysis chapters.
+
+\paragraph{Distinctive angle.} The chapter follows a spectrum-first argument tailored to NOvA:
+the historical and Standard Model setup leads into oscillation theory, which is then used to
+interpret the far-detector energy spectrum and explain the experiment's parameter sensitivity. Two
+things are foregrounded that most surveyed theses treat only in passing --- now developed together
+in one section (\S\ref{plan:spectrum}):
+\begin{enumerate}
+    \item \textbf{Spectral features} --- taking the full 3-flavour probability equations and
+    showing, term by term, which features in the observed far-detector energy spectrum correspond
+    to which physics inputs. This is the pedagogical discussion that most existing theses skip.
+    \item \textbf{Disappearance-led sensitivity arguments} --- why the $\nu_\mu$ disappearance
+    spectrum constrains $\Delta m^{2}_{32}$ and $\theta_{23}$, matching the emphasis of this
+    thesis. The $\nu_e$ appearance channel, $\delta_{\rm CP}$, mass ordering and their degeneracies
+    remain part of the complete three-flavour picture, but receive less space.
+\end{enumerate}
+
+\paragraph{Boundaries.} NOvA hardware, beam construction, and detector-specific numbers stay in
+the NOvA chapter that follows. Physics-level motivation for the NOvA regime ($\sim 810$~km
+baseline, $\sim 2$~GeV peak energy) is fair game here as a theory-motivated design argument.
+Numerical results from the analyses stay in their own chapters.
+
+\paragraph{Length target.} Aim for the lower-middle of a flexible $\sim 21$--$28$ page range:
+history $\sim 2$~pp; Standard Model $\sim 2$--$4$~pp; mixing and oscillations
+$\sim 9$--$11$~pp; spectrum and sensitivity $\sim 5$--$8$~pp; experimental landscape
+$\sim 3$~pp. These are writing guides rather than quotas.
+
+\paragraph{Deadline.} First draft by 2026-09-01.
+
+% ------------------------------------------------------------
+\section{Proposed section outline}
+
+The outline below reflects the original 2026-06-30 decisions, revised on 2026-07-17 to
+merge closely related material into fewer top-level sections. Chapter source files live in
+\texttt{sections/} as \texttt{01\_history}, \texttt{02\_standard\_model},
+\texttt{03\_oscillations}, \texttt{04\_spectrum\_and\_sensitivity},
+\texttt{05\_experimental\_landscape}.
+
+\begin{enumerate}
+    \item A Brief History of the Neutrino
+    \item Neutrinos in the Standard Model --- including brief CC/NC interactions
+    \item Neutrino Mixing and Oscillations --- PMNS, two-flavour derivation, disappearance-led
+    three-flavour probabilities, and compact MSW matter effects
+    \item Spectrum and Sensitivity --- global $P(L/E)$ $\to$ NOvA window;
+    disappearance spectrum as the core; shorter appearance discussion including CP, ordering
+    and degeneracies
+    \item Experimental Landscape --- parameter provenance, JUNO, brief NOvA results and
+    NOvA--T2K comparison, followed by open questions and DUNE
+\end{enumerate}
+
+% ------------------------------------------------------------
+\section{Section-by-section plan}
+
+Each section below records: purpose, key equations/results to include, models to draw on from the
+thesis survey, and any decisions still open.
+
+% ---
+\subsection{A Brief History of the Neutrino}
+\label{plan:history}
+
+\textbf{File:} \texttt{sections/01\_history.tex}
+
+\textbf{Purpose:} Ease the reader in with the story of how neutrinos went from a bookkeeping
+postulate to a directly-detected particle to an evidence-of-new-physics probe.
+
+\textbf{Content:}
+\begin{itemize}
+    \item Pauli's postulate (1930) to explain the continuous $\beta$-decay spectrum
+    \item Cowan--Reines direct detection (1956), retaining the delayed-coincidence principle
+    while trimming detector minutiae
+    \item Discovery of $\nu_\mu$ (Lederman--Schwartz--Steinberger, 1962) and $\nu_\tau$ (DONUT, 2000)
+    \item Pontecorvo / MNS flavour-mixing proposals; solar and atmospheric anomalies
+    $\to$ Super-K (1998) and SNO (2002) oscillation evidence
+    \item Closing bridge written by Oscar: flavour change requires mass and mixing, in tension
+    with the massless neutrinos of the Standard Model; leave chirality and couplings for the next
+    section
+\end{itemize}
+
+\textbf{Models from survey:} Sweeney \S1.2 (Genesis / Observing / Oscillations); Martinez \S1.1
+(discovery narrative); Sep\'ulveda Ch.~1 (broader intro chapter).
+
+\textbf{Length target:} $\sim 2$~pp. The current draft is close to target; revisions should
+improve focus and the hand-off rather than add another historical episode.
+
+% ---
+\subsection{Neutrinos in the Standard Model}
+\label{plan:sm}
+
+\textbf{File:} \texttt{sections/02\_standard\_model.tex}
+
+\textbf{Purpose:} Set up the framework and highlight why non-zero neutrino mass is surprising ---
+motivates everything else in the chapter.
+
+\textbf{Planned subsections:}
+\begin{itemize}
+    \item The Weak Interaction and the Meaning of Flavour
+    \item Chirality and the Absence of Neutrino Mass
+\end{itemize}
+
+\textbf{Content:}
+\begin{itemize}
+    \item Open by answering the tension raised at the end of the history section: SM fermion
+    content and gauge structure, including only left-handed neutrinos
+    \item Weak charged and neutral currents at the level of the CC vertex current only: V--A
+    structure, the left-chiral projector, NC flavour universality, and flavour tagging via the
+    charged lepton in CC interactions
+    \item Explain why the minimal Standard Model has no renormalisable Dirac neutrino mass term,
+    then land the punchline: the SM says $m_\nu = 0$, while oscillations require otherwise
+    \item Do not develop the see-saw mechanism or a Dirac--Majorana comparison. At most note that
+    mass generation lies beyond the minimal SM and that Majorana phases do not affect oscillations.
+\end{itemize}
+
+\textbf{Note on interactions (2026-07-17):} fundamental CC/NC couplings belong here. Detailed
+QE/RES/DIS, nuclear effects (RFG, MEC, FSI) and cross-section systematics stay in the later
+NOvA simulation / interaction chapter --- they concern reconstruction and systematics, not the
+electroweak setup of oscillations.
+
+\textbf{Models from survey:} Booth \S2.2.1 and Veera \S1.2 bracket the depth wanted here, and
+this section sits between them; Sweeney \S1.1 (clean SM-first framing); Sep\'ulveda \S2.1
+(compact SM). Follow none of them structurally --- see the 2026-07-27 decisions.
+
+\textbf{Length target:} $\sim 1.5$--$2$~pp. Do not reintroduce the electroweak field-theory
+machinery, mass models or interaction-mode digressions.
+
+% ---
+\subsection{Neutrino Mixing and Oscillations}
+\label{plan:oscillations}
+
+\textbf{File:} \texttt{sections/03\_oscillations.tex}
+
+\textbf{Purpose:} Develop the full oscillation framework in one continuous argument: mixing
+$\to$ two-flavour derivation $\to$ three-flavour probabilities $\to$ matter effects.
+
+\textbf{Planned subsections:}
+\begin{itemize}
+    \item Flavour and Mass Eigenstates
+    \item The PMNS Matrix
+    \item Oscillation Parameters and Mass Ordering
+    \item Two-Flavour Oscillations
+    \item Three-Flavour Oscillations
+    \item Matter Effects
+\end{itemize}
+
+\textbf{Content --- mixing / PMNS:}
+\begin{itemize}
+    \item Flavour vs.\ mass eigenstates; the mixing matrix $U_{\rm PMNS}$
+    \item Standard parameterisation as product of three rotations $\times$ a CP phase
+    \item Table of current best-fit values (PDG or NuFIT), normal vs.\ inverted ordering
+    \item Comment on Majorana phases (irrelevant for oscillations $\to$ set aside)
+\end{itemize}
+
+\textbf{Content --- two-flavour:}
+\begin{itemize}
+    \item Mass eigenstates propagate as plane waves; flavour eigenstates as superpositions
+    \item Time evolution $\to$ interference $\to$
+    \[
+        P(\nu_\alpha \to \nu_\beta) = \sin^{2}(2\theta) \sin^{2}\!\left(
+            \tfrac{\Delta m^{2}\,L}{4E}
+        \right)
+    \]
+    \item Oscillation length $L_{\rm osc} = 4\pi E / \Delta m^{2}$; where the first maximum sits
+    \item $L/E$ as the natural experimental variable; where the ``dip'' lives
+    \item \textbf{Wave-packet caveat} --- one sentence + footnote: the plane-wave derivation
+    glosses over that mass eigenstates have different dispersion relations and would in principle
+    decohere at a wave-packet-dependent coherence length. For NOvA (and every current oscillation
+    experiment) the coherence length vastly exceeds $L$, so the plane-wave answer is correct.
+    Cite Kayser~(1981), Giunti--Kim textbook, Beuthe review.
+\end{itemize}
+
+\textbf{Content --- three-flavour:}
+\begin{itemize}
+    \item General 3-flavour form; the two independent $\Delta m^{2}_{ij}$
+    \item Full annotated expansion of $P(\nu_\mu \to \nu_\mu)$, foregrounding the dependence on
+    $\theta_{23}$ and $\Delta m^{2}_{32}$ that is most relevant to this thesis
+    \item Flag that the leading disappearance dependence on $\sin^{2}(2\theta_{23})$ is
+    octant-degenerate; reserve the role of appearance and higher-order terms in breaking that
+    degeneracy for Sec.~\ref{plan:spectrum}
+    \item A real but shorter expansion of $P(\nu_\mu \to \nu_e)$: identify the leading atmospheric,
+    solar and $\delta_{\rm CP}$-carrying interference terms without matching the disappearance
+    treatment in length
+    \item Annotate the physical dependence and approximate size of the retained terms
+\end{itemize}
+
+\textbf{Content --- matter effects (MSW):}
+\begin{itemize}
+    \item Effective potential $V_{\rm CC} = \sqrt{2}\,G_{F} n_{e}$ from $\nu_e$--$e^-$ coherent
+    forward CC scattering
+    \item NC potential from Z exchange acts equally on all three flavours $\Rightarrow$ cancels
+    out of oscillation probabilities
+    \item Modified Hamiltonian in flavour basis $\Rightarrow$ constant-density / slab result
+    stated with physical intuition, not derived in full here
+    \item \textbf{Explicit note on $\nu_\mu$ disappearance:} the leading 2-flavour
+    $\nu_\mu \leftrightarrow \nu_\tau$ channel is unaffected by matter; 3-flavour corrections
+    are $\sim$\% level for NOvA
+    \item \textbf{Appearance carries the visible matter sensitivity:} matter modifies the
+    effective $\theta_{13}$ with opposite sign for $\nu$ vs $\bar\nu$; the short derivation and
+    consequences are deferred to Sec.~\ref{plan:spectrum}
+\end{itemize}
+
+\textbf{Models:} Sep\'ulveda \S2.2 / \S2.2.1 / \S2.2.4 / \S2.3; Booth \S2.3 / \S2.3.3 / \S2.4;
+Sweeney \S1.3 / \S1.3.2; Martinez \S1.3.
+
+\textbf{Length target:} $\sim 9$--$11$~pp total. If this section grows, compress the matter
+treatment before sacrificing the two-flavour derivation or disappearance-led three-flavour
+discussion.
+
+% ---
+\subsection{Spectrum and Sensitivity}
+\label{plan:spectrum}
+
+\textbf{File:} \texttt{sections/04\_spectrum\_and\_sensitivity.tex}
+
+\textbf{Purpose:} Translate the oscillation equations into what NOvA sees in the FD spectrum,
+then answer why those features give sensitivity to particular parameters. The disappearance
+spectrum is the analytical centre of gravity, reflecting the emphasis of this thesis. The
+appearance channel completes the three-flavour picture but is deliberately shorter. This remains
+a physics-level argument with no NOvA hardware.
+
+\textbf{Planned subsections:}
+\begin{itemize}
+    \item Probability versus $L/E$
+    \item The NOvA Oscillation Window
+    \item The Disappearance Spectrum
+    \item The Appearance Spectrum
+\end{itemize}
+
+\textbf{Content --- spectral features:}
+\begin{itemize}
+    \item \textbf{Global picture --- brief.} Sketch $P(\nu_\mu\!\to\!\nu_\mu)$ vs $L/E$ over
+    many decades. Fast atmospheric wiggle ($\Delta m^{2}_{32}$) and slow solar envelope
+    ($\Delta m^{2}_{21}$). One figure, one paragraph.
+    \item \textbf{Zoom to NOvA's window.} At fixed $L=810$~km and $E \sim 1$--$3$~GeV, one
+    atmospheric oscillation cycle, not multiple wiggles.
+    \item \textbf{Disappearance.} Single broad dip: position fixes $\Delta m^{2}_{32}$; depth
+    fixes $\sin^{2}(2\theta_{23})$. Why the dip region ($L/E \approx L_{\rm osc}/2$) gives the
+    sharpest $\Delta m^{2}_{32}$ handle. This is the longest subsection.
+    \item Explain the leading $\theta_{23}$ octant degeneracy and briefly identify how appearance
+    information and sub-leading effects help resolve it.
+    \item \textbf{Appearance.} Single broad peak: rate carries $\theta_{13}$--$\delta_{\rm CP}$
+    interference and (via matter) mass ordering; shape carries less information. Keep this
+    materially shorter than the disappearance discussion. Fold CP, mass ordering and their
+    degeneracies into this subsection rather than giving them a separate heading.
+    \item \textbf{Neutrino vs.\ antineutrino running.} What changes in each equation and spectrum.
+    \item Figures: (a) global $P(\nu_\mu\to\nu_\mu)$ vs $L/E$; (b) NOvA window zoom with the
+    first oscillation maximum marked; (c) oscillated vs.\ unoscillated FD disappearance spectrum,
+    annotated with dip position $\leftrightarrow \Delta m^{2}_{32}$ and depth
+    $\leftrightarrow \sin^{2}(2\theta_{23})$. Appearance may receive one small panel only if it
+    earns the space.
+\end{itemize}
+
+\textbf{Content --- sensitivity / degeneracies (within appearance):}
+\begin{itemize}
+    \item Appearance vs.\ disappearance probe orthogonal combinations of parameters
+    \item $\delta_{\rm CP}$ appears only in appearance --- $\nu_{e}$ vs $\bar\nu_{e}$ rate
+    difference is the primary handle
+    \item \textbf{Small derivation --- matter-modified appearance probability.}
+    From the vacuum $P(\nu_\mu \to \nu_e)$ expansion, introduce the MSW potential and show how
+    the leading atmospheric term picks up an effective $\theta_{13}$ shifted by
+    $\pm 2 E V_{\rm CC} / \Delta m^{2}_{31}$. Sign flips for $\bar\nu$ (or when the ordering
+    flips). A short passage of algebra following Nunokawa--Parke--Valle; not a full
+    three-eigenvalue diagonalisation.
+    \item Consequence: $\nu$/$\bar\nu$ asymmetry combines matter + $\delta_{\rm CP}$
+    degenerately; a long baseline separates them because matter scales differently with $E$.
+    \item Physics motivation for $L \sim 810$~km, $E \sim 2$~GeV: oscillation maximum for
+    $\Delta m^{2}_{32}$ \emph{and} matter effect large enough to help break the
+    ordering--$\delta_{\rm CP}$ degeneracy. \emph{Numbers only; hardware later.}
+\end{itemize}
+
+\textbf{Reframing note (2026-06-30):} NOvA scans a narrow $L/E$ window and sees a single
+oscillation cycle, not multiple wiggles. Global picture kept briefly as context.
+
+\textbf{Models:} Booth \S2.4; Sep\'ulveda \S2.5. None of the surveyed theses develops the
+spectral features end-to-end at NOvA's operating regime.
+
+\textbf{Length target:} $\sim 5$--$8$~pp. Appearance, including CP/ordering/degeneracies,
+occupies $\sim 1.5$--$2.5$~pp.
+
+% ---
+\subsection{Experimental Landscape}
+\label{plan:landscape}
+
+\textbf{File:} \texttt{sections/05\_experimental\_landscape.tex}
+
+\textbf{Purpose:} Where the current parameter values come from, what still needs pinning down,
+and how future long-baseline measurements extend the present picture. Keep the section
+disappearance-weighted and thesis-motivating rather than turning it into a field-wide status
+review.
+
+\textbf{Planned subsections:}
+\begin{itemize}
+    \item Solar, Atmospheric and Reactor Measurements
+    \item Long-Baseline Accelerator Measurements
+    \item Current Constraints and Open Questions
+\end{itemize}
+
+\textbf{Content:}
+\begin{itemize}
+    \item Solar $\to$ $\theta_{12}, \Delta m^{2}_{21}$ (with matter-effect-driven resolution of
+    the solar-sector octant)
+    \item Atmospheric / long-baseline disappearance $\to$ $\theta_{23}, \Delta m^{2}_{32}$
+    \item Reactor $\to$ $\theta_{13}$ (Daya Bay final data set)
+    \item \textbf{Corrected 2026-08-03:} an earlier version of this plan attributed
+    $\Delta m^{2}_{31}$ to JUNO's first result. This is wrong. JUNO's first measurement
+    (59.1~days of data, arXiv:2511.14593, Nature 2026) determines the \emph{solar} pair
+    $\sin^{2}\theta_{12}$ and $\Delta m^{2}_{21}$ to world-leading precision;
+    $\Delta m^{2}_{31}$ and $\sin^{2}\theta_{13}$ enter that fit as \emph{external
+    constraints}, not outputs (see p.~15 of the preprint). JUNO's $\Delta m^{2}_{31}$ and
+    mass-ordering reach needs far greater exposure and belongs in the future-outlook
+    material, not in the present-constraints material.
+    \item One tight explanation that the reactor constraint on $\theta_{13}$ unlocked the
+    interpretation of long-baseline appearance data
+    \item Long-baseline appearance $\to$ $\delta_{\rm CP}$ and mass ordering (still open)
+    \item Latest NOvA 3-flavour results, briefly: prioritise disappearance-relevant best fits for
+    $\sin^{2}\theta_{23}$ and $\Delta m^{2}_{32}$, then give only the appearance information
+    required for context
+    \item A fair NOvA--T2K comparison, concentrating on where their constraints or preferred
+    regions differ and avoiding a catalogue of every result
+    \item Open questions: $\theta_{23}$ octant, mass ordering and $\delta_{\rm CP}$; close with a
+    concise account of how DUNE will improve sensitivity to these quantities.
+    \item \textbf{Revised 2026-08-03:} Hyper-K is now covered properly, not merely ``for
+    contrast'', in a dedicated subsection alongside the atmospheric telescopes
+    (IceCube/ORCA). Scope widened from thesis-motivation to a genuine landscape.
+    \item Keep sterile neutrinos and neutrinoless double-beta decay explicitly out of scope.
+\end{itemize}
+
+\textbf{Models:} Booth \S2.5 (broad and well organised); Martinez \S1.3.1.
+
+\textbf{Subsections as written (2026-08-03):}
+\begin{enumerate}
+    \item Solar, Atmospheric and Reactor Measurements
+    \item Long-Baseline Accelerator Measurements
+    \item The Wider Programme (IceCube/ORCA, Hyper-K)
+    \item Current Constraints and Open Questions (parameter table, DUNE)
+\end{enumerate}
+
+\textbf{Conventions fixed 2026-08-03:}
+\begin{itemize}
+    \item Headline numbers come only from journal or arXiv sources, never from conference
+    slides. Page numbers cited with \verb|\citep[p.~N]{...}| refer to the arXiv version
+    named in the \texttt{version} field of the bib entry, not journal pagination.
+    \item Future sensitivities are quoted against exposure (kt$\cdot$MW$\cdot$yr, POT),
+    not calendar years, so the text does not go stale.
+    \item Published result figures are reprinted from the source papers as cropped vector
+    pages (\texttt{*\_src.pdf} in \texttt{images/}, cropped via \texttt{trim}/\texttt{clip});
+    captions carry ``Reproduced from \dots, Fig.~N, p.~X''.
+    \item The parameter table gives NuFIT~6.0 (data closing September~2024) alongside a
+    ``leading direct'' column, because JUNO and the NOvA ten-year result both postdate
+    the global fit.
+\end{itemize}
+
+\textbf{Length target:} $\sim 5$~pp (revised 2026-08-03 from $\sim 3$~pp).
+\textbf{Actual:} $\sim 7.5$~pp as drafted --- roughly 5~pp of prose plus 5 figures and a
+table. Trim candidates if it must come down: the NuFIT global-regions figure (largely
+redundant with the table) and the \S5.3 atmospheric-telescope paragraph.
+
+% ------------------------------------------------------------
+\section{Decisions log}
+
+Resolved on 2026-06-30:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Matter effects:} state slab result cleanly; do not run the full
+    slab derivation. Matter effect on appearance sensitivity gets a small explicit derivation
+    in the spectrum/sensitivity section (complete enough, not overweighted).
+    \item[$\checkmark$] \textbf{Experimental landscape:} include, Booth-style but shorter
+    ($\sim 2$~pp). Cover NOvA latest results and JUNO $\Delta m^{2}_{31}$.
+    \emph{Superseded 2026-08-03 --- see the entry below. The JUNO clause was also factually
+    wrong.}
+    \item[$\checkmark$] \textbf{Historical narrative:} at the very start, ahead of the SM section.
+    \item[$\checkmark$] \textbf{Latest 3-flavour numerical results:} include as motivation in the
+    landscape section, not reserved for the results chapter.
+    \item[$\checkmark$] \textbf{Spectral features:} reframed. NOvA sits at one point in $L/E$,
+    so the FD spectrum shows a single oscillation cycle, not multiple wiggles. Global $P$ vs
+    $L/E$ picture kept briefly as context.
+    \item[$\checkmark$] \textbf{Wave-packet subtleties:} one sentence + footnote citing
+    Kayser~(1981), Giunti--Kim, Beuthe. Not developed further.
+\end{itemize}
+
+Resolved on 2026-07-17:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Section restructuring:} merge PMNS + two-flavour + three-flavour
+    + matter into one section, \emph{Neutrino Mixing and Oscillations}
+    (\texttt{03\_oscillations.tex}). Merge spectral features + sensitivity into one section,
+    \emph{Spectrum and Sensitivity}
+    (\texttt{04\_spectrum\_and\_sensitivity.tex}). Rationale: both pairs were consecutive stages
+    of one argument, and separate top-level sections risked repetition and a fragmented TOC.
+    \item[$\checkmark$] \textbf{Spectrum section titles:} drop ``reading'' wording. Section
+    titled \emph{Spectrum and Sensitivity}; subsections
+    \emph{Probability versus $L/E$}, \emph{The NOvA Oscillation Window},
+    \emph{The Disappearance Spectrum}, \emph{The Appearance Spectrum}. Fold CP, mass ordering
+    and degeneracies into appearance so features and sensitivity stay parallel with
+    disappearance.
+    \item[$\checkmark$] \textbf{Neutrino interactions:} fundamental CC/NC belong in the SM
+    section. Detailed interaction modes and nuclear effects deferred to the later NOvA chapter.
+    \item[$\checkmark$] \textbf{Chapter spine:} spectrum-first and tailored to NOvA, with a
+    disappearance-led treatment matching the emphasis of this thesis. Appearance remains
+    substantive but shorter.
+    \item[$\checkmark$] \textbf{Length budget:} history $\sim 2$~pp; SM $\sim 2$--$4$~pp;
+    oscillations $\sim 9$--$11$~pp; spectrum/sensitivity $\sim 5$--$8$~pp; landscape
+    $\sim 3$~pp.
+    \item[$\checkmark$] \textbf{Three-flavour weighting:} fully annotate
+    $P(\nu_\mu\to\nu_\mu)$ and give a real but shorter $P(\nu_\mu\to\nu_e)$ treatment.
+    Flag the leading $\theta_{23}$ octant degeneracy in the former.
+    \item[$\checkmark$] \textbf{Standard Model boundary:} answer the history section's mass
+    tension through fermion content, left-handed neutrinos, CC/NC couplings and the absence of a
+    minimal-SM neutrino mass term. Do not develop see-saw or Dirac--Majorana models.
+    \item[$\checkmark$] \textbf{Spectrum weighting and figures:} the disappearance subsection is
+    the core. Commit to the global $L/E$ view, NOvA-window zoom and annotated disappearance
+    spectrum; allow at most one small appearance panel if it earns the space.
+    \item[$\checkmark$] \textbf{Landscape weighting:} include JUNO, brief NOvA results, a fair
+    NOvA--T2K comparison and a concise DUNE forward look; prioritise disappearance-relevant
+    constraints.
+    \item[$\checkmark$] \textbf{Matter-expansion reference:} use
+    Nunokawa--Parke--Valle for the short matter-modified
+    $P(\nu_\mu\to\nu_e)$ expansion.
+\end{itemize}
+
+Resolved on 2026-07-27:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Standard Model section condensed, Booth-style:} the draft's
+    field-theory development (gauge group and representation equations, covariant derivative,
+    electroweak field rotations, boson masses, CC and NC Lagrangians, the $G_{F}$ matching, and
+    the Higgs--Yukawa comparison) is removed. What remains is the CC vertex current showing the
+    V--A structure and left-chiral projector, one equation for the CC/NC channel forms in the
+    detector, and the Dirac mass term. $G_{F}$ and NC flavour universality are stated in words
+    so the matter-effects discussion in \S\ref{plan:oscillations} still has its hooks.
+    Rationale: this chapter's argument is oscillation phenomenology, and the QFT derivations
+    were both beyond what the thesis needs to defend and disproportionate at $\sim 4$~pp. Booth
+    \S2.2.1 is the model for depth here.
+    \item[$\checkmark$] \textbf{SM subsections reduced to two:} the electroweak-theory and
+    CC/NC subsections merge, and the pair is retitled
+    \emph{The Weak Interaction and the Meaning of Flavour} and
+    \emph{Chirality and the Absence of Neutrino Mass}.
+    \item[$\checkmark$] \textbf{Own narrative spine, not Booth's:} an earlier condensed draft
+    reproduced Booth \S2.2.1 too closely --- same order (vertex current, ``two features follow'',
+    NC from unification, channel-form equation) and same emphasis. The section instead picks up
+    the history section's closing fact and asks what the SM says a neutrino is, and what its
+    flavour actually \emph{is}. Chirality is then the hinge: the left-chiral coupling that gives
+    flavour its meaning is the same feature that forbids the mass term, so one structural
+    property of the theory carries both the only handle on the particle and the prediction that
+    fails. Parity violation is demoted to a subordinate clause, since nothing later in the
+    chapter uses it, and Booth's CC/NC channel-form equation is replaced by prose.
+    \item[$\checkmark$] \textbf{No forward reference to measurement strategy:} an intermediate
+    draft motivated the section through what an oscillation measurement requires (beam, flavour
+    tag, near/far comparison). Dropped as premature --- nothing about beams, baselines,
+    disappearance or appearance has been set up at this point in the chapter. The motivation is
+    now internal to the physics: flavour is a label attached by the weak interaction rather than
+    a property of a freely propagating neutrino, a distinction that is empty for massless
+    neutrinos and is exactly what \S\ref{plan:oscillations} turns on. This also plants the
+    flavour-versus-mass-eigenstate distinction one section before it is needed.
+    \item[$\checkmark$] \textbf{Length calibrated between Booth and Veera:} Booth's weak-force
+    subsection is $\sim 675$ words with one equation; Veera \S1.2 covers the same ground in
+    $\sim 170$ words with none, relying on a CC/NC Feynman diagram. This section's interaction
+    subsection sits at $\sim 515$ words with one equation, and the mass subsection --- which
+    neither model places here --- at $\sim 395$ words with one equation. Total $\sim 1.6$~pp.
+    \item[$\checkmark$] \textbf{Year-1 progression report material reused:} two passages are
+    carried over in Oscar's own wording. First, the opening characterisation of the neutrino
+    (lepton family, three flavours with charged-lepton counterparts, neutral and colourless
+    and therefore weak-only, ubiquitous but rarely interacting) now opens
+    \S\emph{Neutrinos and the Weak Interaction}. Second, the proper-time argument --- massless
+    neutrinos should not experience time, so a flavour state produced at one spacetime point
+    should persist to the next --- now opens the mass subsection and supplies the physical
+    intuition ahead of the field-content argument. A footnote records that flavour change
+    strictly requires a non-zero mass-squared splitting rather than every state being massive.
+    The report's beta-decay and solar-anomaly narrative is \emph{not} reused: it duplicates
+    \S\ref{plan:history}.
+\end{itemize}
+
+Resolved on 2026-07-28, on drafting \S\ref{plan:oscillations}:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Parameter source:} PDG review chosen over NuFIT as the
+    single source for the parameter table, resolving the open item in the review checklist. It
+    was already the entry in \texttt{main.bib}, it is the citation an examiner will expect for a
+    background table, and using one source throughout avoids mixing fit conventions. The table
+    entries are flagged in-file for verification against the published listing before submission.
+    \item[$\checkmark$] \textbf{Two-flavour before three-flavour, and legitimised afterwards:}
+    the draft derives the two-flavour result first and then, in the three-flavour subsection,
+    recovers it as the leading term of the \emph{exact} $\nu_\mu$ survival probability with the
+    neglected terms bounded. Booth \S2.3.2, Sweeney \S1.3.1 and Martinez \S1.3 all do the
+    reverse --- general three-flavour formula first, two-flavour afterwards as an illustrative
+    toy. Presenting it this way makes the two-flavour formula the working description of this
+    thesis's measurement rather than a pedagogical aside.
+    \item[$\checkmark$] \textbf{Term-magnitude table:} the plan's instruction to annotate each
+    retained term with ``roughly how large it is'' is discharged as an explicit table of
+    contributions to $1-P(\nu_\mu\to\nu_\mu)$ evaluated at $L=810$~km, $E\simeq1.6$~GeV. No thesis
+    in the survey does this, and it is the clearest single point of differentiation.
+    \item[$\checkmark$] \textbf{$\delta_{\rm CP}$ absence proved, not asserted:} setting $\beta=\alpha$
+    makes the quartic product real, so the imaginary term vanishes identically and no survival
+    probability can carry $\delta_{\rm CP}$. Stated as an exact structural result, since it is the reason
+    this thesis measures $\Delta m^{2}_{32}$ and $\theta_{23}$ rather than the CP phase.
+    \item[$\checkmark$] \textbf{Octant degeneracy traced, not just flagged:} the leading
+    amplitude's invariance under $\theta_{23}\to\pi/2-\theta_{23}$ is derived, and the specific
+    $\cos2\theta_{23}$-carrying correction term that breaks it is identified and sized. The
+    resolution itself still defers to \S\ref{plan:spectrum}.
+    \item[$\checkmark$] \textbf{Matter effects led by the null result:} the subsection opens on
+    why $\nu_\mu$ disappearance is essentially unaffected before turning to appearance, inverting
+    the usual MSW-diagonalisation ordering. The slab result is stated, not derived, as decided
+    on 2026-06-30; the matter-modified $P(\nu_\mu\to\nu_e)$ expansion stays in \S\ref{plan:spectrum}.
+    \item[$\checkmark$] \textbf{PMNS factorisation relabelled:} the three rotations are annotated
+    by NOvA channel ($\nu_\mu$ disappearance / $\nu_e$ appearance / solar) rather than by the
+    conventional atmospheric--reactor--solar sector names used by Booth and Sweeney. The sector
+    provenance belongs in \S\ref{plan:landscape}, and the channel labelling serves the chapter's
+    spectrum-first spine.
+    \item[$\checkmark$] \textbf{Figure added:} \texttt{images/mass\_ordering.tex}, a two-panel
+    mass-ordering schematic with flavour-composition shading, placed in the parameters
+    subsection. This is the only figure in \S\ref{plan:oscillations}; the three committed
+    figures remain with \S\ref{plan:spectrum}.
+    \item[$\checkmark$] \textbf{Local figure builds:} the local TeX Live install lacks
+    \texttt{standalone.cls}. Figure sources stay written against \texttt{standalone} so they
+    build unchanged on Overleaf, and \texttt{scripts/build\_standalone\_figure.sh} wraps them in
+    an equivalent article-based page sized to the measured bounding box for local builds.
+    \item[$\checkmark$] \textbf{Length:} \S\ref{plan:oscillations} draft compiles to $10$~pp
+    (pp.~5--14), inside the $9$--$11$~pp budget.
+\end{itemize}
+
+Resolved on 2026-08-03, on drafting \S\ref{plan:landscape}:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Scope widened:} the landscape section becomes a genuine
+    survey ($\sim 5$~pp target) rather than a $\sim 3$~pp thesis-motivation piece, with a
+    dedicated ``Wider Programme'' subsection for Hyper-K and the atmospheric telescopes.
+    The disappearance-led core is unchanged; the breadth is quarantined in \S5.3 so it
+    cannot crowd out the NOvA material.
+    \item[$\checkmark$] \textbf{JUNO correction:} JUNO's first result measures the solar
+    pair, not $\Delta m^{2}_{31}$. The earlier plan entry was factually wrong and has been
+    corrected in place. $\Delta m^{2}_{31}$ and $\sin^{2}\theta_{13}$ are external
+    constraints in that fit.
+    \item[$\checkmark$] \textbf{Parameter source --- supersedes the 2026-07-28 decision:}
+    the \S5.4 table now uses \textbf{NuFIT~6.0}, not PDG. Reasons: NuFIT gives normal and
+    inverted orderings side by side, is the fit the oscillation community actually quotes,
+    and is explicitly datable (data closing September~2024), which matters because JUNO and
+    NOvA's ten-year result both postdate it. That staleness is handled by a second
+    ``leading direct'' column rather than by pretending the global fit is current. The
+    2026-07-28 argument for PDG (single source, examiner familiarity) is noted but
+    outweighed. \emph{Consequence:} if a PDG table is still wanted elsewhere in the thesis,
+    the two must not silently disagree.
+    \item[$\checkmark$] \textbf{Citability floor:} headline numbers come only from journal
+    or arXiv sources, never conference slides, and page numbers refer to the named arXiv
+    version. Every page number in \S5 was verified by opening the source PDF.
+    \item[$\checkmark$] \textbf{Figures reprinted, not redrawn:} published result plots are
+    reprinted as cropped vector pages from the source PDFs. Digitising and redrawing
+    someone's confidence contour was rejected as a misrepresentation risk. Note that
+    reprinting carries a permissions obligation at submission.
+    \item[$\checkmark$] \textbf{Exposure not calendar years:} DUNE and Hyper-K sensitivities
+    are quoted against kt$\cdot$MW$\cdot$yr and POT so the text does not go stale before the
+    viva.
+\end{itemize}
+
+
+% ------------------------------------------------------------
+\section{References to review from the survey}
+
+Priority reads flagged in \texttt{thesis-survey.md}:
+\begin{itemize}
+    \item Booth Ch.~2, \S2.4 --- closest model for the sensitivity emphasis
+    \item Sep\'ulveda Ch.~2, \S2.5 --- $\nu_{e}$-appearance sensitivity case
+    \item Sweeney Ch.~1, \S1.3 --- clean 2- and 3-flavour derivations
+    \item Sep\'ulveda \S2.2.1 --- explicit oscillation-probability derivation
+\end{itemize}
+
+Populate \texttt{main.bib} with entries as these are read and used.
+
+% ------------------------------------------------------------
+\section{Content to revise and review}
+
+This is Oscar's writing and review checklist. It specifies work to do without supplying chapter
+prose.
+
+\subsection{Existing history draft}
+\begin{itemize}
+    \item Trim the Cowan--Reines detector detail while retaining the delayed-coincidence principle.
+    \item Add a two-beat closing bridge: flavour change requires mass and mixing; this conflicts
+    with the minimal Standard Model's massless neutrinos. Leave chirality and couplings for the
+    next section.
+    \item Check citation consistency and ensure the anomaly/evidence narrative remains the climax.
+\end{itemize}
+
+\subsection{Sections still to draft}
+\begin{itemize}
+    \item \textbf{Standard Model:} write the three planned subsections; ensure CC flavour tagging
+    feeds the oscillation discussion without importing QE, RES, DIS or nuclear physics.
+    \item \textbf{Oscillations:} review the two-flavour derivation and wave-packet footnote; choose
+    either NuFIT or PDG as the single source for the parameter table; verify the disappearance
+    expansion and octant statement; keep the appearance expansion shorter but non-trivial; check
+    the compact MSW result.
+    \item \textbf{Spectrum and sensitivity:} produce the three committed figures; verify the
+    mapping from dip position and depth to $\Delta m^{2}_{32}$ and
+    $\sin^{2}(2\theta_{23})$; keep the appearance/CP/ordering close proportionate.
+    \item \textbf{Experimental landscape:} update to the latest NOvA results; review the
+    NOvA--T2K comparison for fair wording; verify the JUNO $\Delta m^{2}_{31}$ result and DUNE
+    sensitivity claims against primary sources.
+\end{itemize}
+
+\subsection{Cross-cutting review passes}
+\begin{itemize}
+    \item Enforce the scope boundary: no QE/RES/DIS, RFG/MEC/FSI, beam construction or detector
+    hardware in this chapter.
+    \item Remove repeated full explanations of appearance, matter effects and $\delta_{\rm CP}$
+    across the oscillations, spectrum and landscape sections.
+    \item Use the masters text below only to salvage useful PMNS and vacuum-probability material;
+    do not port its interaction or nuclear-effects sections.
+    \item Apply the examiner test: after the disappearance-spectrum discussion, can a reader
+    explain why dip position and depth constrain $\Delta m^{2}_{32}$ and
+    $\sin^{2}(2\theta_{23})$? Revise that section before polishing the landscape if not.
+\end{itemize}
+
+\appendix
+\section{Legacy Masters-Thesis Reference}
+
+\noindent\textbf{Status:} The material below is retained as a legacy reference only. It does not
+define the structure, scope or wording of the planned theory chapter.
+
+\noindent Ever since its proposal by Wolfgang Pauli in 1930, the elusive neutrino has been and remains a subject of intrigue for particle physicists. In the SM, neutrinos belong to the lepton family and come in three flavours, each corresponding to their charged lepton counterparts, the electron neutrino ($\nu_e$), muon neutrino ($\nu_{\mu}$) and tau neutrino ($\nu_{\tau}$). Neutrinos are electrically neutral, do not carry colour charge and are massless in the SM, hence they only interact via the weak force. They are produced in vast quantities through many processes and as such, are ubiquitous in the universe. The primary neutrino sources include supernovae, cosmic ray and stellar processes. On Earth they can be produced in high energy particle accelerator experiments and are generated as a byproduct of beta decay processes in fission reactors. Multiple groundbreaking discoveries have been made in the near century of them being studied and theorised. One such discovery is the understanding that neutrinos do in fact have mass, contrary to what is predicted by the SM. The observed phenomenon of neutrino oscillations requires these particles to have mass. 
+
+\vspace{10pt}
+
+In this chapter, neutrinos and their discovery will be presented. The physics of the particle including the aforementioned phenomenon of neutrino oscillations will be also introduced and finally, an overview of their interactions with matter allowing for their detection will be covered. 
+
+
+\subsection{Neutrinos in the Standard Model}
+\setcounter{equation}{0}
+\noindent The nuclear process of beta decay, 
+
+\begin{equation}
+    n \xrightarrow{} \Bar{\nu}_e + e^- + p,
+\end{equation}
+which was first observed in the early 20\textsuperscript{th} century, was first accompanied by a challenge known as the continuous spectrum problem. This issue concerned observations of the energy spectra of the beta particle (high energy $e^-$) emitted in this process. The energy spectra of the electrons did not align with the initially predicted discrete spectrum \cite{rutherford}. It was expected that the electron released from the beta decay should have an energy distribution similar to the discrete energy levels observed in atomic absorption and emission spectra. However, it was measured that the electron could have a continuous range of energies As a result, it was proposed that a new, neutral and hence undetectable particle should be considered and introduced. This was first seen as a quick solution to this problem and accounted for the missing energy/momentum that initially posed confusion. It was Wolfgang Pauli who proposed the existence of this new particle in 1930, which was named the neutrino. Inspired by this new proposition, Enrico Fermi postulated an effective theory, known as Fermi Theory, which describes a 4 point interaction which included this new particle, the neutrino \cite{Gavin}. This theory was the first introduction of the weak nuclear force in the SM. Throughout the years, the weak force was refined so as to neatly fit into the SM. Neutrinos fit quite well in this description as neutral massless particles and come with their respective antiparticles. 
+
+\vspace{10pt}
+
+In the SM, neutrinos are described to be massless, and like the photon, they should not experience time. Therefore, a neutrino produced as a given flavour state at one given point in spacetime should remain in that same flavour state as it propagates. However, this massless nature of the neutrino was put into question and challenged after some observations were made. These observations contradicted the so-called Standard Solar Model (SSM) at the time, leading to the so-called solar neutrino problem. In the Sun, fusion processes occur, for example one where two hydrogen nuclei (protons) collide and fuse together in a high energy collision producing a helium nucleus, an electron neutrino, a positron and some energy corresponding to the difference in rest mass energies of the two protons and the fusion products. This is the principal process by which the Sun produces its energy. Through calculations and the SSM, the electron neutrino flux was predicted. However, when the Homestake Experiment \cite{Homestake} measured this flux with its Chlorine-Argon detector in 1968 \cite{Davis}, the result was that there were fewer chlorine-argon conversions than predicted by the SSM, where each such conversion corresponded to interactions of solar neutrinos with the detector. Later, experiments such as Kamiokande (1986) \cite{Hirata}, a water Cherenkov detector and GALLEX (1992) and SAGE (1991), two Gallium tank based neutrino experiments \cite{Anselmann} \cite{abazov}, all confirmed this solar neutrino deficit. One of the prevailing ideas put forward to explain this was the concept oscillation of electron neutrinos to muon or tau neutrinos. Namely, the electron neutrinos would transform into different flavour neutrinos. These oscillations would occur as a result of the time taken for the neutrinos to travel from the core of the Sun until the point at which they interact with the detector. This hypothesis of neutrino oscillations was very promising but needed to be measured. The following section will explore the mathematics and theoretical aspects of neutrino oscillations. 
+
+ \subsection{Neutrino Oscillations}
+ \setcounter{equation}{0}
+\noindent The phenomenon of neutrino oscillations is defined by the non-zero probability for a neutrino produced in one flavour, to oscillate to another flavour, when measured at two different spacetime points. To understand how this phenomenon works, two sets of neutrino eigenstates need to be introduced. First, there are the neutrino mass eigenstates, $\ket{\nu_i}$, where the indices $i=1,2,3$ correspond to the three neutrino mass states. Next, there also exists the neutrino flavour eigenstates $\nu_{\alpha}$, with $\alpha = e, \mu, \tau$ each describing the flavour of the neutrinos as they are produced and detected. These form two coupled sets of orthogonal neutrino states, where the flavour eigenstates can be written as a linear superposition of the mass eigenstates, and vice-versa. $\nu_i$ are the stationary states of the free particle Hamiltonian and correspond to particles with definite mass. These evolve according to the Time-Dependent Schrödinger equation with plane wave solutions of the form:
+\begin{equation} 
+    \ket{\nu_i(t)} = e^{-iE_it}\ket{\nu_i(t=0)} = e^{-iE_it}\ket{\nu_i},
+\end{equation}
+where $E_i = \sqrt{p^2 + m_i^2}$. In contrast to $\nu_{\alpha}$, these states have a definite mass, suggesting that $\nu_{\alpha}$ should not evolve with time. Since these two mass and flavour eigenbases are orthogonal, they can be related by a 3x3 mixing matrix $U_{PMNS}$.
+\begin{equation}
+    \begin{pmatrix} \nu_e \\ \nu_{\mu} \\ \nu_{\tau} \end{pmatrix} = U_{PMNS} \begin{pmatrix}
+        \nu_1 \\ \nu_2 \\ \nu_3 
+    \end{pmatrix} =
+    \begin{pmatrix}
+        U_{e1} & U_{e2} & U_{e3} \\ U_{\mu 1} & U_{\mu 2} & U_{\mu 3} \\ U_{\tau 1} & U_{\tau 2} & U_{\tau 3}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \nu_1 \\ \nu_2 \\ \nu_3 
+    \end{pmatrix}.
+\end{equation}
+This mixing matrix, known as the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix, satisfies the unitarity condition $ UU^{\dagger} = \mathds{1} $ and can be expressed in terms of three real parameters corresponding to three dimensional rotation angles $\theta_1$, $\theta_2$ and $\theta_3$, and one complex phase factor, $\delta$ \cite{Thomson}. $U_{PMNS}$ can be parameterised into the product of 3 matrices corresponding to different neutrino sources:
+\begin{equation}
+    \begin{pmatrix}
+        U_{e1} & U_{e2} & U_{e3} \\ U_{\mu 1} & U_{\mu 2} & U_{\mu 3} \\ U_{\tau 1} & U_{\tau 2} & U_{\tau 3}
+    \end{pmatrix}
+    = \begin{pmatrix}
+        1 & 0 & 0 \\ 0 & c_{23} & s_{23} \\ 0 & -s_{23} & c_{23}
+    \end{pmatrix}
+\begin{pmatrix}
+    c_{13} & 0 & s_{13}e^{-i\delta} \\ 0 & 1 & 0 \\ -s_{13}e^{i \delta} & 0 & c_{13}
+\end{pmatrix}    
+\begin{pmatrix}
+    c_{12} & s_{12} & 0 \\ -s_{12} & c_{12} & 0  \\ 0& 0& 1
+\end{pmatrix},
+\end{equation}
+where $s_{ij} = \sin\theta_{ij}$ and $c_{ij} = \cos\theta_{ij}$. 
+
+
+To illustrate how neutrino oscillations occur, let us expand (2.2.2), where $\ket{\nu_{\alpha}}$ is neutrino flavour eigenstate as it is produced, at time $t=0$:
+\begin{equation}
+    \ket{\nu_{\alpha}} = U_{\alpha1}\ket{\nu_1} + U_{\alpha2}\ket{\nu_2} + U_{\alpha3}\ket{\nu_3}.
+\end{equation}
+We see therefore that flavour eigenstates have components (with different amplitudes) of each different mass eigenstate. The time dependent nature of $\ket{\nu_i}$ means that at a later time $t$, the $\ket{\nu_i}$ will have have propagated as plane waves according to (2.2.1), resulting in a new flavour state:
+\begin{equation}
+    \ket{\nu_{\alpha}(t)} = U_{\alpha1}e^{-i\phi_1}\ket{\nu_1}+ U_{\alpha2}e^{-i\phi_2}\ket{\nu_2} + U_{\alpha3}e^{-i\phi_3}\ket{\nu_3},
+\end{equation}
+where $\phi_i = p_i \cdot x_i = (E_it - \mathbf{p_i} \cdot \mathbf{x}).$ $\ket{\nu_{\alpha}(t)}$ can clearly be $\neq \ket{\nu_{\alpha}}$, this suggests that the flavour states can be different after propagation. This is the essence of neutrino oscillations. 
+
+To further emphasise this idea, it is useful to consider how one might obtain oscillation probabilities ($P(\nu_{\alpha}\xrightarrow{}\nu_{\beta})$, where $\nu_{\alpha}$ and $\nu_{\beta}$ are different neutrino flavours). A non-zero value for this implies neutrino oscillations. Using the example of a neutrino beam oscillation experiment, where the goal is to study the number of oscillated neutrinos from one (near) detector compared to another (far) detector, for a primarily $\nu_{\alpha}$ beam, studying oscillations consists of evaluating $\nu_{\beta}$ appearance and $\nu_{\alpha}$ disappearance at a far detector. The appearance and disappearance probabilities can be calculated in terms of these PMNS matrix elements using the above linearly combined expressions. 
+
+\begin{equation}
+    P(\nu_{\alpha}\xrightarrow{}\nu_{\beta}) = |\bra{\nu_{\beta}(t)\ket{\nu_{\alpha}}}^2.
+\end{equation}
+
+These probabilities are necessary to obtain important measurements. Full derivations of these oscillation probabilities can be found \cite{suekane, Cremonesi, Derek, Thomson}, but they will be stated below:
+
+\begin{equation}
+    P(\nu_{\alpha} \xrightarrow{}\nu_{\beta}) = \sum_{i,j=1}^3 U_{\alpha i}^*U_{\beta i}U_{\alpha j}U_{\beta j}^*e^{-i\dfrac{\Delta m^2_{ij}}{2E}t},
+\end{equation}
+where $\Delta m^2_{ij} = m_j^2 - m_i^2$ is the mass difference between neutrino mass eigenstates. The assumption that neutrinos are highly relativistic ($E\approx |p|$) was made here. It is clear therefore, that neutrino oscillations are in fact a result of a non-zero value of this probability. Expanded, this probability for neutrino oscillations in vacuum can be expressed as \cite{Derek}:
+
+\begin{equation}
+\begin{split}
+& P(\nu_{\alpha} \xrightarrow{}\nu_{\beta}) = \delta_{\alpha \beta} - 4 \sum_{i<j} Re[U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}]\sin^2\bigg(\frac{\Delta m^2_{ij}L}{4E}\bigg) \\
+&\phantom{+} \phantom{+} + 2 \sum_{i<j}Im[U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}]\sin\bigg(\frac{\Delta m^2_{ij}L}{4E}\bigg),
+\end{split}
+\end{equation}
+where $\delta_{\alpha \beta}$ is the Kronecker delta. This expression shows that for massless neutrinos, the probability of oscillation ($\alpha \neq \beta$) is zero and hence the survival probability ($\alpha = \beta$) is unity (no oscillations).
+
+The NOvA experiment uses a $\nu_{\mu}$ beam, so the oscillation probabilities of interest are the $\nu_e$ appearance and $\nu_{\mu}$ survival probabilities. Working through, (2.2.7)/(2.2.8) \cite{Thomson} gives the following expressions for these:
+
+\begin{equation}
+    P(\nu_{\mu} \xrightarrow{} \nu_e) \approx \sin^22\theta_{13} \sin^2\theta_{23}\sin^2\bigg(1.27 \cdot \frac{\Delta m^2_{32} L}{E_{\nu}}\bigg),
+\end{equation}
+
+\begin{equation}
+    P(\nu_{\mu} \xrightarrow{} \nu_{\mu}) \approx 1 - \cos^4\theta_{13} \sin^22\theta_{23}\sin^2\bigg(1.27 \cdot \frac{\Delta m^2_{32} L}{E_{\nu}}\bigg),
+\end{equation}
+
+where the factor of $1.27$ is a result of $1/\hbar c$ coming from the km to $GeV$ unit conversion, $L$ is the distance travelled by the neutrinos in $km$ and $E_{\nu}$ is the neutrino energy. We can see then, that long-baseline experiments like NOvA are sensitive to some of these important neutrino oscillation parameters. %These crucial parameters underlie some of the most critical open questions in neutrino physics, which will be discussed in the following section.
+
+%\include{tex files/OpenQuestionsSection}
+
+\subsection{Neutrino Interactions}
+As will be made evident throughout this report, one of the principal aims of this project is to investigate neutrino-nucleus interactions in the NOvA ND. To continue with an understanding and appreciation of these interactions and how we detect them, an introduction to neutrino interactions is crucial.
+
+As previously states, neutrinos only interact via the weak and gravitational forces. Their interaction probability is so low that it would take light year's thickness worth of lead for a neutrino\footnote{This is only true for low energy neutrinos $\mathcal{O}$(GeV), and not for Ultra High Energy neutrinos $\mathcal{O}$(PeV) \cite{madsen}.} to have a 50\% chance of being stopped (interact). This means detecting these in our detector is very difficult and can only be done by measuring its final state charged particles that produce tracks in the detector.
+
+\vspace{10pt}
+
+Electroweak unification of the electromagnetic and the weak forces is a fundamental theory of particle physics. Out of this theory emerges the electroweak massive gauge bosons ($Z^0$ and $W^{\pm}$) and the massless photon $\gamma$. The $Z^0$ and $W^{\pm}$ massive boson fields mediate weak interactions and couple to the neutrino fields. This is the only SM force by which neutrinos interact, so these bosons are therefore integral to all neutrino interactions with matter. Neutrino interactions that exchange charge through the $W^{\pm}$ boson propagators are named charged-current. Figure 2.1 (a) shows that there is flavour conservation at the neutrino-$W$-charged lepton vertex. As a result, in these interactions, a charged lepton of the same flavour as the incoming neutrino is produced, so that by detecting this charged lepton, the neutrino flavour can be determined\footnote{Practically, due to the short lifetime and decay topologies of the $\tau$ lepton, detecting $\nu_{\tau}$ interactions is very difficult \cite{tau}.}. Conversely, neutral-current (NC) interactions involve the exchange of the neutral $Z^0$ boson. These is no charge exchange here and from Figure 2.1 (b), it is evident that the incoming neutrino flavour cannot be determined, since the only detected particles would be those arising from the hadronic system due to the neutrino's collision with the target nucleus. Due to them interacting almost exclusively via the weak force, the only way of detecting and identifying them is if the charged particles in the final state of CC interactions with the nucleons of the nuclei of the detector material. Hence, to gain insight into the behaviour of this illusive particle, studying and understanding neutrino-nucleon interactions is critical.
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{png/CCint.png}
+    \caption{ }
+    \label{fig:image1}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{png/NCint.png}
+    \caption{ }
+    \label{fig:image2}
+  \end{subfigure}
+  \caption{Weak current vertices for neutrino interactions. (a) shows a Feynman diagram for the charged-current vertex showing lepton flavour conservation. These interactions are mediated by the exchange of a charged $W$ weak boson. (b) shows a Feynman diagram for the neutral-current vertex and shows no change in the neutrino line. The outgoing neutrino cannot be detected and hence the incoming neutrino flavour cannot be determined.}
+  \label{fig:whole_figure}
+\end{figure}
+ 
+
+\subsection{Neutrino-Nucleon Interactions} \label{sec:nu-int}
+
+\noindent The weak boson fields, which generate the gauge bosons that mediate these neutrino-nucleus interactions are coupled with both neutrino and quark fields and allow these interactions to occur. Similarly to scattering of other particles, depending on the energy of the incoming neutrino, the interaction might look different. For example, high energy neutrinos are able to probe at much smaller length scales, so can interact with individual quarks inside the nucleons. In contrast, lower energy ones may interact with the nucleus as a whole \cite{Derek}. This energy dependence leads to there being specific dominant interaction modes at different neutrino energies. For the energies that oscillation experiments are concerned with, there are 3 principal interaction modes that want attention. Figure 2.2 shows at which energies these three different processes dominate.
+
+\begin{figure}[h!]
+\centering
+\includegraphics*[scale=0.36]{png/Int_modes.png}
+\caption{Plot showing cross section divided by neutrino energy as a function of neutrino energy. Three different interaction modes, Quasi-Elastic, Resonant and Deep Inelastic Scattering can be seen to dominate at different incoming neutrino energies. \cite{Cheryl}} \label{expansionfigure}
+\end{figure}
+
+\subsubsection{Charged-Current Quasi-Elastic (CCQE)}
+
+Considering CC interactions, as these allow for the neutrino flavour to be determined, Figure 2.2 shows that between $10^{-1}$ GeV and around $1$ GeV incident neutrino energy, the most dominant interaction process is that of Quasi-Elastic (QE) scattering. At this energy range, the neutrino will interact at a length scale comparable to the size of a nucleon, and hence the nucleon as a whole. Figure 2.3 shows the Feynman diagram for this process with both a muon neutrino and a muon antineutrino\footnote{For the purposes of this thesis, the following Feynman diagrams (figures 2.3-2.5) show the interaction modes with muon flavoured neutrinos incident on the nuclei. However, the interaction modes are identical for the other two neutrino flavours.} incident on a nucleon of the target nucleus. This interaction mode produces a very clean signal and allows for the incoming neutrino energy to be extracted by the charged lepton kinematics, ie its kinetic energy and its angle with respect to the beam direction \cite{lalakulich}. These are two important variables that will be important in this analysis and will be touched on in more detail in a later section.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics*[scale=0.27]{png/CCQE_.png}
+\caption{Feynman diagram showing a CC quasi-elastic interaction with an incident $\nu_{\mu}$ or $\overline{\nu}_{\mu}$.} \label{expansionfigure}
+\end{figure}
+
+
+\subsubsection{Resonant Pion Production}
+
+\begin{figure}[h!]
+\centering
+\includegraphics*[scale=0.15]{png/CCRES.jpeg}
+\caption{Feynman diagram showing a RES interaction with an incident $\nu_{\mu}$ or $\overline{\nu}_{\mu}$. This specific RES channel produces a so-called $\Delta$-baryon resonance, before de-exciting to a nucleon and a pion.} \label{expansionfigure}
+\end{figure}
+
+Considering now the neutrino energy region between $1$ GeV and around $5$ GeV in Figure 2.2, the dominant interaction process here is so-called Resonant Pion Production (RES). This resonant process is a result of the incident neutrino having enough energy to excite the nucleon producing a baryon-resonance. This resonant state is unstable, so will decay back to a nucleon by emitting a pion. There are many different possible interaction channels for this resonant process. The type of pion ($\pi^0$ or $\pi^{\pm}$) being emitted, as well as the final state nucleon (proton or neutron), will be contingent upon which channel the interaction has undergone \cite{formaggio}. A simple channel is shown in the Feynman diagram of Figure 2.4.
+
+
+
+
+\subsubsection{Deep Inelastic Scattering}
+Finally, beyond neutrino energies of approximately $5$ GeV, the Deep Inelastic Scattering (DIS) process is such that the neutrino now has a high enough energy to resolve smaller lengths and therefore will probe inside the nucleons interacting with the constituent quarks. Consequently, the target nucleon will be broken apart, and as a result of colour confinement\footnote{Colour confinement is a principle stating that colour charged particles (quarks and gluons) must be found in colourless bound states, and can never exist as free particles.}, the quarks will hadronise producing a hadronic shower in the detector, from which we can infer DIS. This interaction with individual quarks is illustrated in Figures 2.5 (a) and (b).
+
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[h!]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{png/CCDIS.jpeg}
+    \caption{}
+    \label{fig:image1}
+  \end{subfigure}
+  \hspace{0.1\textwidth}
+  \begin{subfigure}[h!]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{png/CCDIS2.jpeg}
+    \caption{}
+    \label{fig:image2}
+  \end{subfigure}
+  \caption{Feynman diagrams showing DIS interactions with an incident $\nu_{\mu}$ or $\overline{\nu}_{\mu}$. The incoming neutrino has a high enough energy to probe deep inside the nucleons and interact with individual quarks.}
+  \label{fig:whole_figure}
+\end{figure}
+
+\vspace{15pt}
+
+The three interaction modes considered above have each been predicted by separate models. Each of these models are not consistent in their accuracy and hence are incompatible with each other. Therefore, in order to gain a better understanding of the nuclear structure and how it affects its interactions with incident neutrinos, it can be useful to unify these models by studying an energy region where each of these three processes are important. Oscillation experiments such as NOvA operate in an energy range where each of these interaction mechanisms are significant. This region is shaded in Figure 2.2.
+
+\subsection{Nuclear Effects} \label{sec:NuclearEffects}
+When studying neutrino interactions, the charged lepton kinematics\footnote{For this specific analysis, we are interested in looking for $\nu_{\mu}$, so the variables of interest are those arising from the muon kinematics.} and the final state hadronic particles (Section \hyperref[sec:eavail]{4.5}) produced by these interactions are important variables to consider. Needless to say, to understand the hadronic kinematics and the system as a whole, knowledge of the interaction mode is crucial. However, the effect of certain processes that occur inside the nucleus, which might affect the final state hadronic kinematics is a critical consideration. These can make the identification of interaction modes in addition to the reconstruction of these hadronic kinematics far less predictable. To understand these nuclear effects, it is crucial to note that neutrino-nucleus interactions can be split into three categories or steps, namely the motion of the nucleons in the nuclear medium just before the interaction has occurred, followed by correlations of the nucleons during the interaction and finally, the propagation of the hadrons after the interaction. Each of these will be highlighted below.
+
+
+\subsubsection{The Relativistic Fermi Gas Model}
+Firstly, it is important to note that even though the target nucleus is at rest, this does not mean that the neutrino-nucleon interaction is occurring in the lab frame of the experiment. In neutrino oscillation experiments, it needs to be considered that the detectors are composed mainly of hydrocarbon, which make up the plastic scintillators, iron in samplng calorimeters and water in Cherenkov detectors. More on the detector composition follows this in Chapter \hyperref[sec:NOvAChap]{3}. As a result, the target nucleons exist in bound states, forming nuclei. This is in contrast to liquid hydrogen targets where nucleons form the entire nucleus \cite{Cremonesi}. Consequently, it is paramount to acquire a detailed understanding of the nuclear medium in order to make accurate predictions. Since nucleons are spin-$1/2$ particles, they are known as fermions. Therefore, the nuclear medium can be modelled as a so-called relativistic Fermi gas. This is known as the \textit{Relativistic Fermi Gas} (RFG) model \cite{joseph} and in its simplicity, states that the nucleons inside the nucleus, rather than being at rest, are in constant motion at relativistic speeds. Therefore, the neutrino-nucleon interaction will occur in a boosted reference frame rather than the expected lab frame, thereby leading to an incorrect estimation of the final state hadronic kinematics.
+
+\subsubsection{Meson Exchange Currents}
+Another effect that has recently been implemented in the latest neutrino interaction generators is that of \textit{Meson Exchange Currents} (MEC). This effect uses the idea that nucleons within the nucleus can form correlated pairs. It is these correlated pairs that the incoming neutrino interacts with. MEC is also known as 2p-2h, since the interaction knocks out two nucleons that can be detected in the final state, leaving two holes in the nucleus. The inclusion of this process in our simulations results in a much better agreement with data as shown in Figure 2.6.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[h!]{0.44\textwidth}
+    \includegraphics[width=\textwidth]{png/No_MEC.png}
+    \caption{}
+    \label{fig:image1}
+  \end{subfigure}
+  \hspace{0.1\textwidth}
+  \begin{subfigure}[h!]{0.44\textwidth}
+    \includegraphics[width=\textwidth]{png/MEC_1.png}
+    \caption{}
+    \label{fig:image2}
+  \end{subfigure}
+  \caption{Plots showing how the inclusion of MEC (b) in simulations leads to a better agreement with data, compared to without MEC (a). Plots taken from the NOvA experiment \cite{mark}.}
+  \label{fig:whole_figure}
+\end{figure}
+
+\subsubsection{Final State Interactions} \label{sec:FSI}
+
+\begin{figure}[h!]
+\centering
+\includegraphics*[scale=0.25]{png/FSI.png}
+\caption{Schematic showing the possible final state interactions that can occur inside the nucleus. The final state particles, as they exit the nucleus, may interact in various different ways, leading to altered apparent final states. Diagram taken from \cite{sowjanya}} \label{expansionfigure}
+\end{figure}
+
+Finally, we introduce the concept of \textit{Final State Interactions} (FSI). This is the final stage of the interaction process and occurs just prior to detection. After the initial neutrino-nucleon interaction has occurred, the final state particles must exit the nucleus by travelling through the nuclear medium. Consequently, they are at risk of interacting with this nuclear medium, which can lead to altered final state particle kinematic determination and hence misinterpretations of the underlying physics of the interaction. These, along with the other nuclear effects discussed, must be understood and accounted for. Figure 7 shows some examples of FSI types, which include:
+
+\vspace{10pt}
+
+\noindent \textbf{\textit{Charge Exchange: }}This FSI effect concerns the interaction of a final state particle with a nuclear nucleon. A prominent example of charge exchange is the pion-nucleon FSI reaction \cite{golan2}. Put simply, this FSI is one where the final state pion interacts with the nucleon, exchanging charge and exits the nucleus to be detected with a different electric charge. This can easily result in a misinterpretation of the final state particle kinematics and hence the true interaction mode.
+
+\vspace{10pt}
+
+\noindent \textbf{\textit{Elastic Scattering: }}This is quite straightforward in that  the outgoing final state particle simply scatters off a nucleon resulting in the final state kinematics to change, again causing some potential confusion.
+
+\vspace{10pt}
+
+\noindent \textbf{\textit{Absorption: }}Here, the final state particle is completely absorbed by a FSI in the nucleus. The detector will not even see the outgoing particle.
+
+\vspace{10pt}
+
+\noindent \textbf{\textit{Pion Production: }}Finally there is pion production, here the interaction of the final state particle results in an additional pion being produced that can mimic other final state particles and again cause misidentification of the underlying interaction mechanism.
+
+\vspace{10pt}
+
+It is clear that nuclear effects can make some unexpected contributions to the final measurement by altering the final state kinematics in an unpredictable way. Therefore, particle physicists must continue to refine the hypotheses and theories surrounding these effects and incorporate them into the latest models and simulations. By studying neutrino-nucleus interactions as will be done in this dissertation and many other bodies of work, these neutrino event generators can be improved in order to further reduce relevant measurement uncertainties.
+
+\end{document}

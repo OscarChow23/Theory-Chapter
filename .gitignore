@@ -1,0 +1,26 @@
+# Local Python / Matplotlib caches (figure scripts)
+.venv/
+.mplconfig/
+.cache/
+__pycache__/
+*.pyc
+
+# Editor / backup
+.vscode/
+*.bak
+
+# LaTeX build artefacts (root build/ for main; plan/build/ for plan)
+build/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Compiled PDFs at repo root / plan (sources and figures stay tracked)
+/main.pdf
+/plan/plan.pdf
