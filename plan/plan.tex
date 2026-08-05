@@ -100,8 +100,8 @@ merge closely related material into fewer top-level sections. Chapter source fil
     \item Spectrum and Sensitivity --- global $P(L/E)$ $\to$ NOvA window;
     disappearance spectrum as the core; shorter appearance discussion including CP, ordering
     and degeneracies
-    \item Experimental Landscape --- parameter provenance, JUNO, brief NOvA results and
-    NOvA--T2K comparison, followed by open questions and DUNE
+    \item Experimental Landscape --- solar/reactor (incl.\ JUNO), LBL (NOvA/T2K + Crystal Ball
+    hook), next-generation (DUNE/Hyper-K), then open questions
 \end{enumerate}
 
 % ------------------------------------------------------------
@@ -344,8 +344,9 @@ review.
 
 \textbf{Planned subsections:}
 \begin{itemize}
-    \item Solar, Atmospheric and Reactor Measurements
+    \item Solar and Reactor Measurements
     \item Long-Baseline Accelerator Measurements
+    \item Next-Generation Experiments
     \item Current Constraints and Open Questions
 \end{itemize}
 
@@ -356,13 +357,13 @@ review.
     \item Atmospheric / long-baseline disappearance $\to$ $\theta_{23}, \Delta m^{2}_{32}$
     \item Reactor $\to$ $\theta_{13}$ (Daya Bay final data set)
     \item \textbf{Corrected 2026-08-03:} an earlier version of this plan attributed
-    $\Delta m^{2}_{31}$ to JUNO's first result. This is wrong. JUNO's first measurement
-    (59.1~days of data, arXiv:2511.14593, Nature 2026) determines the \emph{solar} pair
-    $\sin^{2}\theta_{12}$ and $\Delta m^{2}_{21}$ to world-leading precision;
-    $\Delta m^{2}_{31}$ and $\sin^{2}\theta_{13}$ enter that fit as \emph{external
-    constraints}, not outputs (see p.~15 of the preprint). JUNO's $\Delta m^{2}_{31}$ and
-    mass-ordering reach needs far greater exposure and belongs in the future-outlook
-    material, not in the present-constraints material.
+    $\Delta m^{2}_{31}$ to JUNO's first result. This is wrong for the Nature first result
+    (59.1~days, arXiv:2511.14593): that measurement determines the \emph{solar} pair, with
+    $\Delta m^{2}_{31}$ and $\sin^{2}\theta_{13}$ as external constraints.
+    \item \textbf{Updated 2026-08-05:} JUNO's June~2026 update (207~days; Neutrino/PASCOS)
+    reports a first reactor $|\Delta m^{2}_{31}|$ at $\sim 1\%$ precision. Cover that in
+    Solar and Reactor; Crystal Ball (arXiv:2606.14121) is a one-paragraph hierarchy hook
+    under Long-Baseline, with the full treatment deferred to the analysis-chapter motivation.
     \item One tight explanation that the reactor constraint on $\theta_{13}$ unlocked the
     interpretation of long-baseline appearance data
     \item Long-baseline appearance $\to$ $\delta_{\rm CP}$ and mass ordering (still open)
@@ -371,22 +372,21 @@ review.
     required for context
     \item A fair NOvA--T2K comparison, concentrating on where their constraints or preferred
     regions differ and avoiding a catalogue of every result
-    \item Open questions: $\theta_{23}$ octant, mass ordering and $\delta_{\rm CP}$; close with a
-    concise account of how DUNE will improve sensitivity to these quantities.
-    \item \textbf{Revised 2026-08-03:} Hyper-K is now covered properly, not merely ``for
-    contrast'', in a dedicated subsection alongside the atmospheric telescopes
-    (IceCube/ORCA). Scope widened from thesis-motivation to a genuine landscape.
+    \item Open questions: mass ordering first, then $\theta_{23}$ octant and $\delta_{\rm CP}$;
+    close on NOvA disappearance as what the thesis takes up.
+    \item \textbf{Revised 2026-08-05:} Next-Generation Experiments covers DUNE and Hyper-K
+    only. IceCube/ORCA deferred. DUNE reach moved out of open questions into next-generation.
     \item Keep sterile neutrinos and neutrinoless double-beta decay explicitly out of scope.
 \end{itemize}
 
 \textbf{Models:} Booth \S2.5 (broad and well organised); Martinez \S1.3.1.
 
-\textbf{Subsections as written (2026-08-03):}
+\textbf{Subsections as written (2026-08-05):}
 \begin{enumerate}
-    \item Solar, Atmospheric and Reactor Measurements
-    \item Long-Baseline Accelerator Measurements
-    \item The Wider Programme (IceCube/ORCA, Hyper-K)
-    \item Current Constraints and Open Questions (parameter table, DUNE)
+    \item Solar and Reactor Measurements (live body; atmospheric peer paragraph commented)
+    \item Long-Baseline Accelerator Measurements (commented; Crystal Ball outline hook)
+    \item Next-Generation Experiments (commented; DUNE + Hyper-K; IceCube/ORCA deferred)
+    \item Current Constraints and Open Questions (commented; parameter table + three opens)
 \end{enumerate}
 
 \textbf{Conventions fixed 2026-08-03:}
@@ -404,11 +404,11 @@ review.
     the global fit.
 \end{itemize}
 
-\textbf{Length target:} $\sim 5$~pp (revised 2026-08-03 from $\sim 3$~pp).
-\textbf{Actual:} $\sim 7.5$~pp as drafted --- roughly 5~pp of prose plus 5 figures and a
-table. Trim candidates if it must come down: the NuFIT global-regions figure (largely
-redundant with the table) and the \S5.3 atmospheric-telescope paragraph.
-
+\textbf{Length target:} $\sim 3$--$4$~pp of prose (revised 2026-08-05; leaner than Booth
+\S2.5), plus a small number of figures.
+\textbf{Previous draft:} $\sim 7.5$~pp when fully uncommented --- trim by folding Crystal Ball
+to one paragraph, dropping IceCube/ORCA from next-generation, and avoiding a dedicated
+NOvA 3-flavour subsection.
 % ------------------------------------------------------------
 \section{Decisions log}
 
@@ -598,6 +598,27 @@ Resolved on 2026-08-03, on drafting \S\ref{plan:landscape}:
     \item[$\checkmark$] \textbf{Exposure not calendar years:} DUNE and Hyper-K sensitivities
     are quoted against kt$\cdot$MW$\cdot$yr and POT so the text does not go stale before the
     viva.
+\end{itemize}
+
+Resolved on 2026-08-05, on restructuring \S\ref{plan:landscape}:
+\begin{itemize}
+    \item[$\checkmark$] \textbf{Four-subsection spine:} Solar and Reactor; Long-Baseline
+    Accelerator; Next-Generation Experiments; Current Constraints and Open Questions.
+    Replaces ``Wider Programme'' and drops atmospheric as a peer in subsection~1.
+    \item[$\checkmark$] \textbf{Booth calibration:} Booth \S2.5 (Experimental Status) is the
+    organisational model but not the length target; aim shorter, disappearance-weighted.
+    \item[$\checkmark$] \textbf{Crystal Ball:} one tight paragraph under LBL as thesis hook;
+    full treatment deferred to the analysis-chapter motivation / outlook.
+    \item[$\checkmark$] \textbf{Next-generation focus:} DUNE and Hyper-K only; IceCube/ORCA
+    deferred. DUNE reach lives here, not under open questions.
+    \item[$\checkmark$] \textbf{Drafting state:} only Solar and Reactor body is live; later
+    subsection bodies remain commented with outline comments under each heading.
+    \item[$\checkmark$] \textbf{JUNO $|\Delta m^{2}_{31}|$ citability:} the June~2026
+    $\sim 1\%$ result has been presented (Neutrino/PASCOS, 207~days) but no
+    collaboration arXiv/journal source was found at restructuring time. Live text therefore
+    corrects only the outdated ``needs far greater exposure'' claim; the $|\Delta m^{2}_{31}|$
+    paragraph stays commented until a citable source exists. Crystal Ball bib entry added as
+    \texttt{NOvAJUNO2026} (arXiv:2606.14121).
 \end{itemize}
 
 
