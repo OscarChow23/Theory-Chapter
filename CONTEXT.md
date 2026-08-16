@@ -57,33 +57,88 @@ The leading-order inability of disappearance data expressed through
 _Avoid_: Octant ambiguity
 
 **Experimental landscape**:
-The account of which experiments constrain each oscillation parameter, the remaining
-open questions, and how upcoming measurements extend present sensitivity.
-_Avoid_: Experiment catalogue, Status report
+A sectored inventory of oscillation measurements: programme sectors (solar/reactor,
+long-baseline accelerator, next-generation), the experiments in each, the parameters they
+constrain, then a brief global-fit outlook. Primary job is the parameter inventory; a light
+bridge to the thesis measurement is allowed at the close.
+_Avoid_: Bare status report
 
-**Parameter provenance**:
-The organising principle of the landscape section: each oscillation parameter is traced to
-the class of measurement that constrains it, rather than being presented as a bare number.
-_Avoid_: Parameter summary
+**Landscape intro**:
+The section opening: (1) one-clause nod to the previous section's framework including matter
+effects, with no remotivation of matter; (2) a provenance claim — each parameter is
+constrained by a distinct measurement class set by baseline-to-energy ratio and flavour tag;
+(3) a forward hook naming the three open questions. The body is walked by programme sector;
+the intro's intellectual claim need not equal the subsection headings.
+_Avoid_: Re-deriving or remotivating matter effects; Full open-question paragraphs in the intro
+
+**Programme sector**:
+An organisational heading by experimental programme class — solar and reactor, long-baseline
+accelerator, next-generation — not by parameter family alone. Parameters appear as outputs of
+the experiments in that sector.
+_Avoid_: Parameter sector when describing section structure
+
+**Operating-first**:
+Narrative emphasis on experiments that are currently taking data, while still citing a finished
+experiment whenever it holds the leading direct constraint on a parameter (e.g. Daya Bay for
+\(\theta_{13}\)).
+_Avoid_: Currently operating only; Latest-only with no operating frame
+
+**Solar discovery spine**:
+In the landscape section: point back to the history chapter's solar/atmospheric anomalies
+subsection for the solar deficit and SNO closure; keep here only MSW fixing the sign of
+\(\Delta m^2_{21}\) and the \(\theta_{12}\) octant, KamLAND's vacuum confirmation, then
+JUNO as the present leading direct on the solar pair. Same pattern for Super-K atmospheric
+discovery.
+_Avoid_: Retelling Homestake–GALLEX–SAGE or the Solar Neutrino Problem narrative; Jumping
+straight to JUNO numbers with no sign-of-dm21 motivation
+
+**Global-fit close**:
+The final landscape subsection: NuFIT global values beside leading direct measurements, the
+three open questions (mass ordering, \(\theta_{23}\) octant, \(\delta_{\rm CP}\)), and a single
+closing paragraph handing off to the NOvA disappearance measurement.
+_Avoid_: Separate "relevance to this thesis" subsection; Threading the thesis bridge through
+every sector
+
+**Inline combinations**:
+Combined analyses are not a peer programme sector. T2K–NOvA joint results and the JUNO–LBL
+\(|\Delta m^2|\) ordering hook sit as short paragraphs inside long-baseline; NuFIT appears only
+in the global-fit close; external \(\theta_{13}\) priors are mentioned when a quoted fit uses
+them. If the LBL subsection becomes cluttered, a short combined-analyses subsection may be
+split out later without changing this policy.
+_Avoid_: Joint-fit subsection by default; Methods-level comparison of combination strategies
 
 **Solar pair**:
 \(\sin^2\theta_{12}\) and \(\Delta m^2_{21}\), taken together. Canonically what JUNO's first
-result measures. Note that JUNO does _not_ measure \(\Delta m^2_{31}\) in that result; it
-enters the fit as an external constraint.
+result measures. That first result does _not_ report \(\theta_{13}\) or \(|\Delta m^2_{31}|\) as
+outputs; \(\theta_{13}\) and the atmospheric splitting enter as external constraints. Daya Bay
+remains the leading direct \(\theta_{13}\) measurement as of August 2026.
 _Avoid_: Solar parameters when the reader might read it as "parameters measured by solar
-experiments" specifically
+experiments" specifically; Claiming JUNO leads on \(\theta_{13}\)
 
 **Leading direct measurement**:
 The single-experiment result that currently exceeds the global-fit precision for a given
-parameter. Distinguished from the global fit because NuFIT 6.0 closes in September 2024 and
-several headline results postdate it.
+parameter, whether or not that experiment is still operating. Distinguished from the global fit
+because NuFIT closing dates can lag headline single-experiment results.
 _Avoid_: Best measurement, World best
 
+**NuFIT freeze**:
+The global-fit column in the landscape close uses the newest NuFIT release available when the
+chapter is frozen, with the analysis closing date stated in the table caption. As of the
+grilling session that is NuFIT 6.1 (data through November 2025).
+_Avoid_: Hard-coding NuFIT 6.0 after a newer release exists; Omitting the closing date
+
+**Parameter provenance**:
+The intro's intellectual claim: each oscillation parameter is traced to the measurement class
+that constrains it (baseline-to-energy ratio and flavour tag). Not the body outline — subsection
+headings remain programme sectors.
+_Avoid_: Rewriting the body as parameter-by-parameter subsections
+
 **Wider programme**:
-The experiments covered for the completeness of the field rather than for thesis relevance:
-Hyper-Kamiokande, IceCube DeepCore, KM3NeT/ORCA. Quarantined in its own subsection so that
-breadth cannot displace the disappearance-led core.
-_Avoid_: Other experiments
+Experiments mentioned only briefly for completeness inside another sector (e.g. IceCube
+DeepCore under long-baseline/atmospheric context; KM3NeT/ORCA omitted for now). Not a peer
+subsection. DUNE and Hyper-Kamiokande are _not_ wider-programme filler: they get a short
+dedicated next-generation subsection.
+_Avoid_: Other experiments; Quarantining Hyper-K away from next-generation
 
 ## Citation and figure conventions (section 5)
 
