@@ -2,15 +2,15 @@
 \section{Experimental Landscape}
 \label{sec:landscape}
 
-% Spine (2026-08-09 grilling): solar/reactor -> LBL (NOvA/T2K; inline T2K--NOvA
-% joint + JUNO--LBL |dm^2| ordering hook; brief IceCube) -> next-generation
-% (DUNE/Hyper-K, exposure-indexed) -> NuFIT 6.1 + leading directs / open
-% questions / one NOvA disappearance handoff. Intro: provenance claim; body:
+% Spine (2026-08-09 grilling; next-gen/close 2026-08-27): solar/reactor -> LBL
+% (NOvA/T2K; inline T2K--NOvA joint + JUNO--LBL |dm^2| ordering hook; brief
+% IceCube) -> DUNE-weighted next-generation (DUNE Phase I/II + exposure-indexed
+% reach; Hyper-K short; complementarity) -> NuFIT 6.1 table + pointer
+% opens / meantime NOvA disappearance handoff. Intro: provenance claim; body:
 % programme sectors. Citation convention: page numbers refer to the arXiv
 % version named in each bib entry, not to journal pagination. Sources cited by
 % table or figure number use pagination-independent identifiers. See the header
-% comment in main.bib. Subsection bodies are commented out for planning; red
-% blurbs are live placeholders.
+% comment in main.bib. See ADR-0003.
 
 The physics describing neutrino oscillations was set out in the previous section. This
 included the three-flavour oscillation framework, which helped to introduce 
@@ -208,54 +208,24 @@ octant of $\theta_{23}$, as mentioned, is not well constrained.
 \end{figure}
 
 \paragraph{NOvA-T2K.}
-The Tokai to Kamioka (T2K) experiment, measures the same parameters as NOvA, as it sits at a similar $L/E$, 
-but with a shorter baseline of $295$\,km and an energy spectrum peaking at a lower at around
-$0.6$\,GeV. Both experiments sit near the first disappearance dip and as a result are broadly consistent in their 
+The Tokai to Kamioka (T2K) experiment, measures the same parameters as NOvA, as it sits at a similar $L/E$.
+T2K has a shorter baseline of $295$\,km and its energy spectrum peaks lower at around $0.6$\,GeV.
+Both experiments sit near the first disappearance dip and as a result are broadly consistent in their 
 disappearance measurements as can be seen in Figure~\ref{fig:nova-contour}.
 Since NOvA's baseline is around $2.7\times$ larger than T2K's, NOvA's neutrinos pass through more of the Earth. The 
 appearance channel for NOvA therefore sees an enhanced matter effect. As a consequence, the ordering--$\dcp$ 
-degeneracy introduced in Section~\ref{sec:matter-effect} manifests differently in both experiments. The bi-event plot
+degeneracy introduced in Section~\ref{sec:matter} manifests differently in both experiments. The bi-event plot
 of Figure~\ref{fig:bievent} shows this more concretely. This plot shows the expected number of $\nuebar$ against $\nue$ 
 appearance candidate events at NOvA (a) and T2K's (b) far detectors. By varying the value of $\dcp$ through a full 
-period, from $-\pi$ to $\pi$, the predicted number of events traces out an ellipse in this space, with each ordering tracing out its
-own ellipse. The degeneracy explained in Section~\ref{sec:matter-effect}, is clearly visible in this plot, that is, the 
-appearance rate for the normal ordering hypothesis with $\dcp\simeq+\pi/2$ yields an almost identical rate to the 
-inverted ordering hypothesis with $\dcp\simeq-\pi/2$. The ordering pulls the rate in the opposite direction 
-to the CP term. With T2K's smaller matter effect, the ordering ellipses are pulled apart by a much smaller amount. 
-T2K's ordering sensitivity therefore suffers from higher degenracy as there is more overlap between ellipses, whereas
-at their tips, there is less $\dcp$ degeneracy.
-
-
-
-
-
-Understand NOvA-T2K results as well, finding 
-Continue reading about NOvA-T2K joint analysis on the cursor chat 
-"Degeneracy in t2k matter effects".
-
-
- 
-
-The consequence is that the two experiments break the
-ordering--$\dcp$ degeneracy differently. Concretely: at NOvA, a normal-ordering
-hypothesis with $\dcp\simeq+\pi/2$, which lowers the $\nue$ appearance rate, can
-produce the same rates as an inverted-ordering hypothesis with $\dcp\simeq-\pi/2$,
-which raises them, because the matter term and the CP interference pull in
-opposite directions and can cancel. At T2K the matter term is small, so that
-mimicry is unavailable; an excess of $\nue$ over $\nuebar$ is then a nearly pure
-$\dcp$ measurement, preferring $-\pi/2$ in either ordering, but it cannot tell
-the orderings apart. NOvA therefore constrains the ordering better, T2K
-constrains $\dcp$ better, and their appearance data can be combined to hold one
-parameter fixed while the other is read off.
-
-Figure~\ref{fig:bievent} shows a bi-event plot this more clearly. Plotting the expected $\nue$ against
-$\nuebar$ appearance rates traces an ellipse as $\dcp$ varies from $-\pi$ to $\pi$, with
-one ellipse per mass ordering. For NOvA the two ellipses are well separated, so the data
-discriminate between orderings but constrain $\dcp$ only loosely; for T2K the ellipses
-overlap almost completely, so the experiment has little ordering sensitivity but points
-to similar $\dcp$ values in either hierarchy. Combining them therefore yields
-simultaneous ordering and $\dcp$ information with substantially less ambiguity than
-either provides alone.
+period, from $-\pi$ to $\pi$, the predicted number of events traces out an ellipse in this space, with each ordering tracing 
+out its own ellipse. The degeneracy explained in Section~\ref{sec:matter}, is clearly visible in the NOvA panel (a), that is, 
+the appearance rate for the normal ordering hypothesis with $\dcp\simeq+\pi/2$ yields an almost identical rate to the 
+inverted ordering hypothesis with $\dcp\simeq-\pi/2$. For these two hypotheses, the degeneracy occurs due to the matter term 
+and the CP term cancelling, resulting in an almost identical appearance rate. With T2K's smaller matter effect, the ordering
+sensitivity is weakened, which can be seen by the ellipses overlapping much more than in NOvA. This additional overlap means
+that for maximal CP violation, the degeneracy is lifted slightly; the same $\dcp$ values coincide more closely in both 
+orderings. For CP-conserving points, the opposite is true; the degeneracy between different CP-conserving values and the 
+ordering is still present.
 
 \begin{figure}[tb]
     \centering
@@ -267,215 +237,121 @@ either provides alone.
     \label{fig:bievent}
 \end{figure}
 
+Comparing the data points for both experiments, NOvA's point is closest to the overlap of the ellipses, occupying the most 
+degenerate region, whereas T2K's is placed at the tip of the normal ordering ellipse corresponding to $\dcp\simeq-\pi/2$ in 
+either ordering. Due to the pulling apart of the ellipses, NOvA is more sensitive to the ordering, whereas T2K's overlap makes
+its $\dcp$ sensitivity stronger. For this reason, the joint analysis of the two experiments combines the appearance samples.
 
-NOvA and T2K performed a first joint analysis of both their datasets and 
 
+This first joint analysis yielded a value for $\dm{32} = 2.43^{+0.04}_{-0.03}(-2.48^{+0.03}_{-0.04})\times10^{-3}$\,eV$^{2}$ in 
+the normal (inverted)ordering, with a $3\sigma$ interval on $\dcp$ of $[-1.38\pi,\,0.30\pi]$ in the normal ordering, narrowing 
+to $[-0.92\pi,\,-0.04\pi]$ when assuming the inverted ordering ~\citep[p.~5]{T2KNOvA2025}. The joint collaboration performed a 
+joint Bayesian posterior fit over a shared set of oscillation parameters. The fit showed no significant preference for either 
+ordering. However, when the inverted ordering hypothesis is assumed, the fit excludes a substantial fraction of $\dcp$ space, 
+and favours maximal CP violation with $\dcp\simeq-\pi/2$~\citep[Fig.~3, p.~9]{T2KNOvA2025}.
 
-
-The first joint analysis of the two data sets, performed with a common treatment of
-systematic uncertainties, gives $\dm{32} = 2.43^{+0.04}_{-0.03}\times10^{-3}$\,eV$^{2}$
-in the normal ordering and a $3\sigma$ interval on $\dcp$ of $[-1.38\pi,\,0.30\pi]$,
-narrowing to $[-0.92\pi,\,-0.04\pi]$ if the inverted ordering is
-assumed~\citep[p.~5]{T2KNOvA2025}. The data show no strong preference for either
-ordering. The asymmetry between the two intervals is itself informative: under the
-inverted ordering the joint data exclude a substantial fraction of $\dcp$ space,
-including CP conservation, whereas under the normal ordering they remain compatible with
-it.
 
 \paragraph{Reactor--accelerator complementarity.}
 The determination of the atmospheric mass squared splitting parameter $\dm{3\ell}$ by reactor and long baseline
-accelerator experiments are complimentary in that their measurements should agree under the correct mass 
-ordering. Therefore, as the JUNO experiment matures and its $\dm{3\ell}$ measurements become more precise, 
-this can be input to NOvA's analysis as a sharper external constraint than the current one provided by 
-Daya Bay, potentially strenghtnening the ordering preference~\cite{NOvAJUNO2026}. A more quantitative treatment
-of this potential improvement will be 
-
-
-
-
-
-
-Reactor and accelerator determinations of $|\dm{3\ell}|$ are complementary: the two
-measurements should agree only under the correct mass ordering. Replacing a Daya Bay
-constraint on $|\dm{32}|$ with a sharper JUNO-like reactor prior therefore strengthens
-NOvA's ordering preference~\cite{NOvAJUNO2026}. Only the conceptual hook is needed here;
-a quantitative treatment of that complementarity: and of how an improved NOvA $\dm{32}$
-feeds into it: belongs in the analysis chapters. Precision on the atmospheric splitting
-is not an end in itself.
-
-\paragraph{Atmospheric context (IceCube).}
-IceCube DeepCore already constrains $\dm{32}$ at a precision competitive with
-accelerator experiments~\cite{IceCube2023}; its allowed region can sit on the NOvA
-contour figure. (KM3NeT/ORCA omitted for now.)
+accelerator experiments are complementary in that their measurements should agree under the correct mass
+ordering. Reactor $\nuebar$ disappearance experiments are sensitive to $|\dm{31}|$, whereas long-baseline $\numu$
+disappearance measures $\dm{32}$. These two parameters, arising as frequencies in the oscillation probability, differ 
+by the known solar splitting $\dm{21}$. Therefore, the two types of experiments should agree after subtracting the solar splitting
+from $\dm{31}$ under the correct mass ordering hypothesis. A reactor measurement of $\dm{31}$ can therefore be used to help with 
+the mass ordering determination in NOvA, an idea that will be fleshed out in a later chapter. As a results, as reactor experiments 
+like JUNO matures and becomes more precise, NOvA will be able to improve its ordering preference~\cite{NOvAJUNO2026}.
 
 % ============================================================
 \subsection{Next-Generation Experiments}
 \label{sec:landscape-nextgen}
 
-{\color{red}
-\textit{Rough plan (grilling contract):}
-\begin{itemize}
-    \item DUNE: long baseline; matter-driven ordering; $\dcp$ once ordering fixed
-          (sensitivities vs exposure in kt$\cdot$MW$\cdot$yr)
-    \item Hyper-K: short baseline; $\dcp$ first; ordering mainly via atmosphere
-    \item Complementarity: structural (matter vs statistics), not incidental
-\end{itemize}
-}
+\paragraph{DUNE.}
+The Deep Underground Neutrino Experiment (DUNE) will send a wide-band neutrino beam $1300$\,km from Fermilab to
+a far detector complex consisting of up to four liquid-argon time-projection chambers located at the Sanford
+Underground Research Facility~\cite{DUNE2025Science}. Matter effects are enhanced due to the longer baseline  
+resulting in more effective separation of the $\dcp$ interference by its different
+energy dependence (Sec.~\ref{sec:matter}), while the wide-band beam measures both $\nue$
+($\nuebar$) appearance and $\numu$ ($\numubar$) disappearance as functions of energy. That
+spectral information is what breaks the degeneracies among $\dcp$, the mass ordering and
+$\theta_{23}$ that a single $L/E$ cannot~\citep[p.~3]{DUNE2025Science}. A movable near
+detector (DUNE-PRISM) characterises neutrino--argon interactions over a range of off-axis
+energies, so that the remaining systematic uncertainties can be held at the few-percent
+level required for the precision programme~\cite{DUNE2025Science}.
 
-% The measurements above do not exhaust the field; the next generation of long-baseline
-% experiments is built to resolve the open questions of Sec.~\ref{sec:landscape-open}.
-% Sensitivities below are quoted against exposure, not calendar year.
-%
-% \paragraph{Hyper-Kamiokande.}
-% Hyper-Kamiokande is the successor to Super-Kamiokande, a water-Cherenkov detector of
-% $258$\,kt total mass: a fiducial volume roughly eight times its predecessor's:
-% exposed to an upgraded J-PARC beam on T2K's $295$\,km baseline. Its strategy is the
-% opposite of DUNE's: rather than lengthening the baseline to enlarge the matter effect,
-% it accumulates very large statistics at a short baseline where that effect, and hence
-% the ordering--$\dcp$ degeneracy, is small. This makes it a $\dcp$ experiment first and
-% foremost. With the nominal exposure of $27\times10^{21}$ protons on target in a $1{:}3$
-% neutrino-to-antineutrino ratio: ten years of running: CP conservation can be
-% excluded at $5\sigma$ for more than $60\%$ of possible true values of $\dcp$, and in
-% under three years for maximal CP violation if the ordering is known
-% independently~\citep[p.~5]{HyperK2025}. The resolution on $\dcp$ ranges from about
-% $20^{\circ}$ at maximal CP violation to $6^{\circ}$~\citep[p.~5]{HyperK2025}. Because
-% the beam alone gives little ordering sensitivity, Hyper-Kamiokande relies on its
-% atmospheric sample, the combination reaching $3.5$--$4.5\sigma$ on the ordering in six
-% years~\citep[p.~7]{HyperK2025}.
-%
-% The complementarity with DUNE is therefore structural rather than incidental: DUNE
-% resolves the ordering through matter effects and infers $\dcp$ once the ordering is
-% fixed, while Hyper-Kamiokande measures $\dcp$ directly in a regime where matter effects
-% are a small correction. A disagreement between them would be hard to attribute to a
-% shared systematic.
-%
-% \paragraph{How DUNE extends the reach.}
-% DUNE addresses the open questions by lengthening the baseline to $1300$\,km, enlarging
-% the matter effect enough to separate it from the $\dcp$ interference term by its
-% different energy dependence, and by using liquid-argon time-projection chambers with
-% substantially better calorimetric resolution than the detectors above. Its sensitivities
-% are quoted against exposure in kt$\cdot$MW$\cdot$yr rather than calendar time; that
-% convention is followed here.
-%
-% Figure~\ref{fig:dune-cpv} shows the CP-violation sensitivity as a function of exposure.
-% CP violation can be established at $5\sigma$ after roughly $336$\,kt$\cdot$MW$\cdot$yr
-% : about seven years under the nominal staging scenario : if $\dcp = -\pi/2$, and
-% after roughly $624$\,kt$\cdot$MW$\cdot$yr, about ten years, for half of all possible
-% $\dcp$ values; $3\sigma$ coverage of $75\%$ of $\dcp$ values follows after about thirteen
-% years~\citep[p.~27]{DUNE2020}. The mass ordering is comparatively easy: DUNE reaches
-% $5\sigma$ for all values of $\dcp$ within an exposure below
-% $500$\,kt$\cdot$MW$\cdot$yr~\citep[p.~29]{DUNE2020}, and in the exposures studied there
-% were no simulated data sets for which the incorrect ordering was
-% preferred~\citep[p.~28]{DUNE2020}. At fifteen years of exposure the resolution on $\dcp$
-% itself reaches $5^{\circ}$--$15^{\circ}$ depending on its true
-% value~\citep[p.~29]{DUNE2020}, and the combination of appearance and disappearance
-% samples resolves the octant over most of the currently allowed range of
-% $\sin^{2}\theta_{23}$~\citep[p.~29]{DUNE2020}.
-%
-% \begin{figure}[tb]
-%     \centering
-%     \includegraphics[trim=38bp 546bp 308bp 72bp,clip,width=0.60\textwidth]{dune_cpv_src.pdf}
-%     \caption{Significance of a DUNE determination of CP violation as a function of
-%     exposure in kt$\cdot$MW$\cdot$yr, for $\dcp=-\pi/2$ and for $50\%$ and $75\%$ of
-%     possible true $\dcp$ values, assuming the normal ordering. The band width shows the
-%     effect of applying an external constraint on $\theta_{13}$. Reproduced from the
-%     DUNE Collaboration~\citep[Fig.~16, p.~27]{DUNE2020}.}
-%     \label{fig:dune-cpv}
-% \end{figure}
+\paragraph{Hyper-Kamiokande.}
+Hyper-Kamiokande is a water-Cherenkov detector on T2K's $295$\,km
+baseline~\cite{HyperK2025}. There the matter effect is small, so the beam measurement is
+of $\dcp$ first; the ordering is taken mainly from the atmospheric sample.
+
+The complementarity is therefore structural rather than incidental: DUNE uses matter to
+fix the ordering before reading $\dcp$, while Hyper-Kamiokande measures $\dcp$ where
+matter is a small correction. A disagreement between them would be hard to attribute to a
+shared systematic.
 
 % ============================================================
 \subsection{Current Constraints and Open Questions}
 \label{sec:landscape-open}
 
-{\color{red}
-\textit{Rough plan (grilling contract):}
-\begin{itemize}
-    \item Parameter snapshot: NuFIT~6.1 (Nov.~2025 close) + leading directs
-          (JUNO solar pair, NOvA $\theta_{23}$/$\dm{32}$, Daya Bay $\theta_{13}$)
-    \item Open: mass ordering; $\theta_{23}$ octant; $\dcp$
-    \item One final paragraph only: handoff to NOvA disappearance / this thesis
-\end{itemize}
-}
+Table~\ref{tab:osc-params} collects the current parameter values. The global-fit column
+is taken from NuFIT~6.1, which combines data available through its November~2025
+closing date (including the first JUNO solar-pair result); the second column gives the
+leading single-experiment determination for each parameter.
 
-% Table~\ref{tab:osc-params} collects the current parameter values. The global-fit column
-% is taken from NuFIT~6.1, which combines data available through its November~2025
-% closing date (including the first JUNO solar-pair result); the second column gives the
-% leading single-experiment determination for each parameter. Figure~\ref{fig:nufit-global}
-% shows the corresponding allowed regions.
-%
-% \begin{table}[tb]
-%     \centering
-%     \small
-%     \begin{tabular}{lccll}
-%         \toprule
-%         & \multicolumn{2}{c}{NuFIT~6.1 global fit} & \multicolumn{2}{c}{Leading direct} \\
-%         \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-%         Parameter & Normal & Inverted & Value & Source \\
-%         \midrule
-%         $\sin^{2}\theta_{12}$ & $0.3088^{+0.0067}_{-0.0066}$ & $0.3088^{+0.0067}_{-0.0066}$
-%             & $0.3092 \pm 0.0087$ & JUNO \\
-%         $\sin^{2}\theta_{23}$ & $0.470^{+0.017}_{-0.014}$ & $0.550^{+0.013}_{-0.016}$
-%             & $0.55 \pm 0.02$ & NOvA \\
-%         $\sin^{2}\theta_{13}$ & $0.02248^{+0.00055}_{-0.00059}$ & $0.02262^{+0.00057}_{-0.00056}$
-%             & $0.0851 \pm 0.0024$\rlap{$^{\dagger}$} & Daya Bay \\
-%         $\dcp/^{\circ}$ & $212^{+26}_{-36}$ & $274^{+22}_{-25}$
-%             & --- & \\
-%         $\dm{21}/10^{-5}~\text{eV}^{2}$ & $7.537^{+0.094}_{-0.10}$ & $7.537^{+0.094}_{-0.10}$
-%             & $7.50 \pm 0.12$ & JUNO \\
-%         $\dm{3\ell}/10^{-3}~\text{eV}^{2}$ & $+2.511^{+0.021}_{-0.020}$ & $-2.483^{+0.020}_{-0.020}$
-%             & $+2.431^{+0.036}_{-0.034}$ & NOvA \\
-%         \bottomrule
-%     \end{tabular}
-%     \caption{Three-flavour oscillation parameters. Global-fit values are the NuFIT~6.1
-%     best-fit points with $1\sigma$ uncertainties for the normal (NO) and inverted (IO)
-%     orderings, from the variant including Super-Kamiokande and IceCube atmospheric
-%     data~\cite{NuFIT61,NuFIT60}; that analysis closes in November~2025. The final
-%     columns give the leading single-experiment determination:
-%     JUNO~\citep[p.~15]{JUNO2026}, NOvA~\citep[p.~2]{NOvA2025} and
-%     Daya Bay~\cite{DayaBay2023}. Here $\dm{3\ell}$ denotes $\dm{31}$ for the normal and
-%     $\dm{32}$ for the inverted ordering. $^{\dagger}$Daya Bay reports
-%     $\sin^{2}2\theta_{13}$ rather than $\sin^{2}\theta_{13}$.}
-%     \label{tab:osc-params}
-% \end{table}
-%
-% \begin{figure}[tb]
-%     \centering
-%     \includegraphics[width=0.46\textwidth]{nufit61_global.pdf}
-%     \caption{Two-dimensional projections of the allowed six-dimensional parameter region
-%     from the NuFIT~6.1 global analysis, after minimisation with respect to the
-%     undisplayed parameters. The bilobed structure in the upper panels reflects the
-%     unresolved mass ordering, and the extent of the $\dcp$ panels reflects its weak
-%     determination. Reproduced from Esteban et al.~\cite{NuFIT61}.}
-%     \label{fig:nufit-global}
-% \end{figure}
-%
-% Three questions remain unresolved, and all three bear directly on the measurement
-% presented later in this thesis.
-%
-% \paragraph{The mass ordering.}
-% The sign of $\dm{32}$ is undetermined. Present long-baseline data show only a weak
-% preference for the normal ordering~\citep[p.~7]{NOvA2025}, and the joint T2K--NOvA
-% analysis finds no strong preference either way~\citep[p.~5]{T2KNOvA2025}. Because the
-% ordering enters the appearance probability through the matter term, and $\dcp$ enters
-% through the interference term, the two are degenerate in a single experiment at a single
-% baseline: the degeneracy visible as the two ellipses of Fig.~\ref{fig:bievent}.
-%
-% \paragraph{The $\theta_{23}$ octant.}
-% Disappearance data constrain $\sin^{2}(2\theta_{23})$ and are therefore blind to the
-% octant at leading order. Appearance data depend on $\sin^{2}\theta_{23}$ and are not, but
-% the appearance rate is small and correlated with $\dcp$ and the ordering. The
-% consequence, visible in Fig.~\ref{fig:nova-contour}, is that a value of $\theta_{23}$
-% close to maximal is the hardest case to resolve: and is what the data currently
-% prefer.
-%
-% \paragraph{Leptonic CP violation.}
-% The value of $\dcp$ is weakly constrained and its allowed range depends on the assumed
-% ordering~\citep[p.~5]{T2KNOvA2025}. This is the least well determined of the six
-% parameters, and the only one for which CP conservation is not yet excluded.
-%
-% In the meantime, the parameters that DUNE and Hyper-Kamiokande will eventually determine
-% must be constrained by the experiments now running. NOvA's disappearance measurement
-% provides the most precise single-experiment determination of $\dm{32}$
-% available~\citep[p.~2]{NOvA2025}, and it is that measurement: its far-detector
-% spectrum, its systematic treatment and its interpretation: that the remainder of this
-% thesis addresses.
+\begin{table}[tb]
+    \centering
+    \small
+    \begin{tabular}{lccll}
+        \toprule
+        & \multicolumn{2}{c}{NuFIT~6.1 global fit} & \multicolumn{2}{c}{Leading direct} \\
+        \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+        Parameter & Normal & Inverted & Value & Source \\
+        \midrule
+        $\sin^{2}\theta_{12}$ & $0.3088^{+0.0067}_{-0.0066}$ & $0.3088^{+0.0067}_{-0.0066}$
+            & $0.3092 \pm 0.0087$ & JUNO \\
+        $\sin^{2}\theta_{23}$ & $0.470^{+0.017}_{-0.014}$ & $0.550^{+0.013}_{-0.016}$
+            & $0.55 \pm 0.02$ & NOvA \\
+        $\sin^{2}\theta_{13}$ & $0.02248^{+0.00055}_{-0.00059}$ & $0.02262^{+0.00057}_{-0.00056}$
+            & $0.0851 \pm 0.0024$\rlap{$^{\dagger}$} & Daya Bay \\
+        $\dcp/^{\circ}$ & $212^{+26}_{-36}$ & $274^{+22}_{-25}$
+            & --- & \\
+        $\dm{21}/10^{-5}~\text{eV}^{2}$ & $7.537^{+0.094}_{-0.10}$ & $7.537^{+0.094}_{-0.10}$
+            & $7.50 \pm 0.12$ & JUNO \\
+        $\dm{3\ell}/10^{-3}~\text{eV}^{2}$ & $+2.511^{+0.021}_{-0.020}$ & $-2.483^{+0.020}_{-0.020}$
+            & $+2.431^{+0.036}_{-0.034}$ & NOvA \\
+        \bottomrule
+    \end{tabular}
+    \caption{Three-flavour oscillation parameters. Global-fit values are the NuFIT~6.1
+    best-fit points with $1\sigma$ uncertainties for the normal (NO) and inverted (IO)
+    orderings, from the variant including Super-Kamiokande and IceCube atmospheric
+    data~\cite{NuFIT61,NuFIT60}; that analysis closes in November~2025. The final
+    columns give the leading single-experiment determination:
+    JUNO~\citep[p.~15]{JUNO2026}, NOvA~\citep[p.~2]{NOvA2025} and
+    Daya Bay~\cite{DayaBay2023}. Here $\dm{3\ell}$ denotes $\dm{31}$ for the normal and
+    $\dm{32}$ for the inverted ordering. $^{\dagger}$Daya Bay reports
+    $\sin^{2}2\theta_{13}$ rather than $\sin^{2}\theta_{13}$.}
+    \label{tab:osc-params}
+\end{table}
+
+Three questions remain open.
+
+\paragraph{The mass ordering.}
+The sign of $\dm{32}$ is still open. Fig.~\ref{fig:bievent} shows why a single baseline
+cannot separate it from $\dcp$, and the joint T2K--NOvA analysis finds no strong
+preference either way~\citep[p.~5]{T2KNOvA2025}.
+
+\paragraph{The $\theta_{23}$ octant.}
+Disappearance data constrain $\sin^{2}(2\theta_{23})$ and are therefore blind to the
+octant at leading order. Fig.~\ref{fig:nova-contour} shows the present status: NOvA's
+allowed region sits almost symmetrically about maximal mixing, which is the hardest case
+to resolve.
+
+\paragraph{$\dcp$.}
+The value of $\dcp$ is the least well determined of the six parameters. Its allowed range
+depends on the assumed ordering, as the joint T2K--NOvA interval already showed, and
+Fig.~\ref{fig:bievent} shows why. CP conservation is not yet excluded.
+
+Until DUNE and Hyper-Kamiokande resolve these questions, they must be constrained by the
+experiments now running. NOvA's disappearance measurement is the leading direct
+determination of $\dm{32}$~\citep[p.~1]{NOvA2025}, and it is that measurement --- the
+far-detector spectrum, its systematic treatment and its interpretation --- that the
+remainder of this thesis addresses.

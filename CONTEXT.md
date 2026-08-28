@@ -140,6 +140,33 @@ subsection. DUNE and Hyper-Kamiokande are _not_ wider-programme filler: they get
 dedicated next-generation subsection.
 _Avoid_: Other experiments; Quarantining Hyper-K away from next-generation
 
+**DUNE-weighted next-generation**:
+The next-generation programme sector is DUNE-led. DUNE gets two paragraphs: how the
+$1300$\,km wide-band beam and LArTPC separate matter from $\delta_{\rm CP}$, then Phase~I/II
+staging with exposure-indexed reach and the current first-beam target (2031). Hyper-Kamiokande
+stays one short paragraph (baseline, water Cherenkov, $\delta_{\rm CP}$ first, atmospheric
+ordering). One or two complementarity sentences close the subsection. No sensitivity figure.
+_Avoid_: Equal DUNE/Hyper-K length; Mini TDR; Hyper-K-first next-generation;
+Physics-only next-generation; Next-generation subsection intro
+
+**Next-generation complementarity**:
+DUNE uses a long baseline to separate the matter effect from the $\delta_{\rm CP}$
+interference and infers $\delta_{\rm CP}$ once the ordering is fixed; Hyper-Kamiokande
+measures $\delta_{\rm CP}$ at T2K's short baseline, where matter is a small correction, and
+takes the ordering mainly from its atmospheric sample. The split is structural (matter vs
+statistics), not incidental.
+_Avoid_: Listing both as generic next-generation long-baseline experiments
+
+**Pointer close**:
+In the global-fit close, each of the three open questions is named in two or three sentences
+and pointed at an existing landscape figure (bi-event plot, disappearance contour, joint
+interval). The degeneracy is not re-derived. The NuFIT table is the parameter snapshot; the
+NuFIT global plot is omitted. The single handoff paragraph uses a meantime bridge: next-
+generation experiments will settle the three opens, but this thesis takes up NOvA's
+leading-direct $\Delta m^{2}_{32}$ disappearance measurement.
+_Avoid_: Re-explaining the ordering--$\delta_{\rm CP}$ degeneracy in the close; NuFIT figure
+plus table; Straight-to-NOvA close with no meantime bridge
+
 ## Citation and figure conventions (section 5)
 
 **Page-exact citation**:
@@ -156,5 +183,7 @@ _Avoid_: Digitising and redrawing a published confidence contour
 
 **Exposure-indexed sensitivity**:
 A future-experiment sensitivity quoted against accumulated exposure (kt·MW·yr, POT) rather
-than a calendar year, so the claim does not go stale as schedules move.
-_Avoid_: "DUNE will measure X by 20NN"
+than a calendar year, so the physics claim does not go stale as schedules move. A single
+project-target year (DUNE Phase~I first beam in 2031) may be stated from the current
+official source; physics reach stays in exposure.
+_Avoid_: "DUNE will measure X by 20NN"; Quoting only calendar years for CPV or the ordering
