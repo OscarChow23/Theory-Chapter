@@ -2,11 +2,13 @@
 \section{Neutrino Mixing and Oscillations}
 \label{sec:oscillations}
 
+The flavour of a neutrino denotes its state when it is produced or detected. It was previously mentioned that neutrinos oscillate, or change flavour as they propagate. A neutrino produced as a given flavour
+may therefore be detected as a different flavour at a later point. This means that a propagating neutrino experiences and evolves as a function of time. This statement is not true for massless particles, as they travel at the speed of light, so no proper time elapses as they travel. Neutrino oscillations therefore, imply that neutrinos are massive.
 
-The flavour of a neutrino denotes its state when it is produced of detected. It was previously mentioned that neutrinos oscillate, or change flavour as they propagate. This statement suggests that at one point in time, a neutrino is produced as a given flavour, and at a later point in time, it is detected as a different flavour. This means that a proppagating neutrino experiences and evolves as a funciton of time. This statement is not true for massless particles, as they travel at the speed of light, so no proper time elapses as they travel. Neutrino oscillations therefore, imply that neutrinos are massive.
-
-This section introduces the orthogonal bases that neutrino oscillations (or flavour change) require, namely, flavour and mass eigenstates. 
-Section~\ref{sec:two-flavour} begins the oscillation probability derivation for the two-flavour case. Section~\ref{sec:pmns} then introduces how these bases are related by a unitary mixing matrix and gives an overview of the oscillation parameters. This allows for the expansion of the theory to three flavours in Section~\ref{sec:three-flavour}, where the hierarchy of the mass states is also discussed\footnote{An open question that this thesis addresses.}. Section~\ref{sec:matter} then discusses an important effect that arises due to the propagation of neutrinos through the Earth (or more generally, through matter), which modifies the oscillation probability. Although this effect primarily affects the appearance channel, since this thesis is concerned with a disappearance measurement, the emphasis throughout this section is with the $\numu$ survival probability.
+Section~\ref{sec:flavour-mass} introduces the orthogonal bases that neutrino oscillations (or flavour change) require, namely, flavour and mass eigenstates. 
+Section~\ref{sec:two-flavour} begins the oscillation probability derivation for the two-flavour case. Section~\ref{sec:pmns} then introduces how these bases are related by a unitary mixing matrix and gives an overview of the oscillation parameters. This allows for the expansion of the theory to three flavours in Sec.~\ref{sec:three-flavour}, where the ordering of the mass states is also discussed\footnote{An open question that this thesis addresses.}. Section~\ref{sec:matter} then discusses an important effect that arises
+due to the propagation of neutrinos through the Earth (or more generally,
+through matter), which primarily modifies the appearance probability.
 
 \subsection{Flavour and Mass Eigenstates}
 \label{sec:flavour-mass}
@@ -18,15 +20,19 @@ Before they are detected and after they are produced, they must propagate and ev
     \ket{\nu_j} = \sum^{N}_{\alpha} U_{\alpha j}\ket{\nu_\alpha}.
     \label{eq:mixing-relation}
 \end{equation}
-$\ket{\nu_\alpha}$ denotes the flavour eigenstates, where $N$ is the number of flavours, and $\ket{\nu_j}$ denotes the mass eigenstates, and $U$ is the unitary mixing matrix, known as the Pontecorvo--Maki--Nakagawa--Sakata (PMNS) matrix, which will be discussed in more detail in Section~\ref{sec:pmns}. in the three-flavour picture, $N=3$, and $\alpha \in \{e,\mu,\tau\}$.
-Convention is for $U$ to be conjugated in the first relation. \textcolor{red}{For antineutrinos the roles of $U$ and $U^{*}$ are interchanged, a fact that becomes important when CP violation is discussed in Sec.~\ref{sec:three-flavour}}
+$\ket{\nu_\alpha}$ denotes the flavour eigenstates, where $N$ is the number of flavours, and $\ket{\nu_j}$ denotes the mass eigenstates, with $U$ being the unitary mixing matrix, known as the Pontecorvo--Maki--Nakagawa--Sakata (PMNS) matrix, which will be discussed in more detail in Sec.~\ref{sec:pmns}. In the three-flavour picture, $N=3$, and $\alpha \in \{e,\mu,\tau\}$.
+Convention is for $U$ to be conjugated in the first relation. For
+antineutrinos, $U$ and $U^{*}$ are interchanged, so the conjugate
+appears in the second relation instead. This flips the sign of every
+imaginary part of $U$.
 
 Equation~\hyperref[eq:mixing-relation]{(\ref{eq:mixing-relation})} states that a given neutrino flavour state is a coherent superposition of mass states. As these mass states propagate, their relative contributions will evolve, leading to the non-zero probability that the measured flavour state is different to the produced one.
 
 \subsection{Two-Flavour Oscillations}
 \label{sec:two-flavour}
 The derivation presented below loosely follows that of Refs.~\cite{GiuntiKim2007,Booth2021}.
-To derive the two-flavour oscillation mechanism, we first consider the flavour and mass eigenstate mixing relations in Eq.~\hyperref[eq:mixing-relation]{(\ref{eq:mixing-relation})}. To begin, it is useful first, to consider the picture with two flavour states, $\ket{\nu_\alpha}$ and $\ket{\nu_\beta}$, and two mass states, $\ket{\nu_1}$ and $\ket{\nu_2}$, with masses $m_1$ and $m_2$. The unitary mixing matrix $U$ can be express as a $2\times2$ rotation matrix through an angle $\theta$:
+It is useful to begin with with the two flavour derivation, as it is simpler, but already shows that the mixing angle sets the oscillation amplitude and the mass-squared splitting sets the frequency in $L/E$. This fact is the leading behaviour of the three-flavour $\numu$ survival probability, which will be derived later.
+To derive the two-flavour oscillation mechanism, we first consider the flavour and mass eigenstate mixing relations of Eq.~\hyperref[eq:mixing-relation]{(\ref{eq:mixing-relation})}. To begin, it is useful first, to consider the picture with two flavour states, $\ket{\nu_\alpha}$ and $\ket{\nu_\beta}$, and two mass states, $\ket{\nu_1}$ and $\ket{\nu_2}$, with masses $m_1$ and $m_2$. The unitary mixing matrix $U$ can be express as a $2\times2$ rotation matrix through an angle $\theta$:
 
 \begin{equation}
     \begin{pmatrix} \ket{\nu_\alpha} \\ \ket{\nu_\beta} \end{pmatrix}
@@ -48,7 +54,7 @@ Multiplying this out, shows that the flavour states can be written as a linear c
     \label{eq:two-flavour-mixing}
 \end{equation}
 an idea that will be important when considering how the oscillation probabilities evolve with time.
-Next, we reiterate the the neutrino mass states are eigenstates of the free particle Hamiltonian. Therefore, they evolve as a function of time as plane waves; solutions to the time-dependent Schrödinger equation:
+Next, we reiterate that the neutrino mass states are eigenstates of the free particle Hamiltonian. Therefore, they evolve as a function of time as plane wave solutions to the time-dependent Schrödinger equation:
 \begin{equation}
     i\hbar \frac{\partial}{\partial t} \ket{\nu_j(t,\vec{x})} = - \frac{1}{2m_j} \nabla^2 \ket{\nu_j(t,\vec{x})}.
     \label{eq:time-dependent-schrodinger}
@@ -60,18 +66,18 @@ The plane wave solutions to this equation are of the form:
 \end{equation}
 where $E_j = \sqrt{|\vec{p}_j|^{2} + m_j^{2}}$ is the energy of the $j$th mass state, and $\vec{p}_j$ is its three-momentum.
  
-Using the assumption that neutrinos are ultra-relativistic, that is, $m_j \ll E_j$, and by choosing the equal momentum idealisation of the mass states, it can be shown that the energy of the $j$th mass state can be writtten as:
+Using the assumption that neutrinos are ultra-relativistic, that is, $m_j \ll E_j$, and by choosing the equal momentum idealisation of the mass states, it can be shown that the energy of the $j$th mass state can be written as:
 \begin{equation}
     E_j = \sqrt{|\vec{p}_j|^{2} + m_j^{2}} \simeq |\vec{p}_j| + \frac{m_j^{2}}{2|\vec{p}_j|} \simeq E + \frac{m_j^{2}}{2E},
     \label{eq:relativistic-expansion}
 \end{equation}
-where $E$ is the common leading order energy the states. The ultra-relativistic limit allows us to approximate the time as the propagation distance, $t \simeq L$, when working in natural units. The plane wave exponent, or the phase accumulated therefore becomes:
+where $E$ is the common leading order energy of the states. The ultra-relativistic limit allows us to approximate the time as the propagation distance, $t \simeq L$, when working in natural units. The plane wave exponent, or the phase accumulated therefore becomes:
 \begin{equation}
     \phi_j = E_j t - \vec{p}_j\cdot\vec{x} \simeq \frac{m_j^{2}L}{2E}.
     \label{eq:phase}
 \end{equation}
 
-Subsequently, one can combine Eq. \hyperref[eq:two-flavour-mixing]{(\ref{eq:two-flavour-mixing})}, Eq. \hyperref[eq:plane-wave-solution]{(\ref{eq:plane-wave-solution})} and Eq. \hyperref[eq:phase]{(\ref{eq:phase})} to write the amplitude for the transition from $\ket{\nu_\alpha}$ to $\ket{\nu_\beta}$ and take the inner product :
+Subsequently, one can combine Eq. \hyperref[eq:two-flavour-mixing]{(\ref{eq:two-flavour-mixing})}, Eq. \hyperref[eq:plane-wave-solution]{(\ref{eq:plane-wave-solution})} and Eq. \hyperref[eq:phase]{(\ref{eq:phase})} to write the amplitude for the transition from $\ket{\nu_\alpha}$ to $\ket{\nu_\beta}$ and take the inner product:
 \begin{equation}
     A(\nu_\alpha \to \nu_\beta)
     = \braket{\nu_\beta}{\nu_\alpha(L)}
@@ -79,14 +85,14 @@ Subsequently, one can combine Eq. \hyperref[eq:two-flavour-mixing]{(\ref{eq:two-
     = \sin\theta\cos\theta\left(e^{-i\phi_2} - e^{-i\phi_1}\right).
     \label{eq:amplitude}
 \end{equation}
-By taking the squared modulus of this amplitude, and using the identity $|e^{-i\phi_2}-e^{-i\phi_1}|^{2} = 2 - 2\cos\Delta\phi = 4\sin^{2}(\Delta\phi/2)$, where $\Delta\phi = \phi_2 - \phi_1 = \dm{}L/2E$ with $\dm{} \equiv m_2^{2}-m_1^{2}$, the transition probability becomes:
+By taking the squared modulus of this amplitude, and using the identity $|e^{-i\phi_2}-e^{-i\phi_1}|^{2} = 2 - 2\cos\Delta\phi = 4\sin^{2}(\Delta\phi/2)$, where $\Delta\phi = \phi_2 - \phi_1 = \dm{}L/2E$ with $\dm{} \equiv m_2^{2}-m_1^{2}$, the appearance-channel transition probability becomes:
 \begin{equation}
     P(\nu_\alpha \to \nu_\beta)
     = 4\sin^{2}\theta\cos^{2}\theta \sin^{2}\!\left(\frac{\Delta\phi}{2}\right)
     = \sin^{2}(2\theta)\,\sin^{2}\!\left(\frac{\dm{}L}{4E}\right).
     \label{eq:two-flavour-appearance}
 \end{equation}
-One can also write the survival probability as the complement as we are only considering two flavours, 
+One can also write the disappearance-channel survival probability as the complement, as we are only considering two flavours,
 \begin{equation}
     P(\nu_\alpha \to \nu_\alpha) = 1 - \sin^{2}(2\theta)\,\sin^{2}\!\left(\frac{\dm{}L}{4E}\right).
     \label{eq:two-flavour-survival}
@@ -104,9 +110,11 @@ This expression depends on only two physical parameters, the mixing angle $\thet
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{two_flavour_survival}
-    \caption{Two-flavour survival probability as a function of propagation distance at fixed
+    \caption{Panels showing the two-flavour survival probability as a function of propagation distance at fixed
     energy (\textbf{left}) and of neutrino energy at fixed baseline (\textbf{right}). The mixing
-    angle sets the depth of the oscillation through $\sin^{2}(2\theta)$, while $\dm{}$ determines the position of the minima by setting the oscillation phase. Plotting this as a function of energy shows that the variation is not periodic, this is due to the $1/E$ dependence of the phase. The highest-energy minimum lies at $E_{\rm max}$.}
+    angle sets the amplitude of the oscillation through $\sin^{2}(2\theta)$, while $\dm{}$ determines the frequency by setting the oscillation phase. The variation as a function of energy is not periodic, this is due to the $1/E$ dependence of the phase. The highest-energy minimum lies at $E_{\rm max}$.
+    Generated from Eq.~\ref{eq:two-flavour-practical}.
+    The layout is adapted from Fig.~2.4 of Ref.~\cite{Booth2021}, which is itself taken from Ref.~\cite{Hernandez2016}.}
     \label{fig:two-flavour-survival-probability}
 \end{figure}
 
@@ -118,9 +126,9 @@ This can be done by expressing the position of the first dip in the survival pro
     E_{\rm max} = \frac{\dm{}L}{2\pi} \simeq 0.81\,\dm{}[\mathrm{eV}^{2}]\;L[\mathrm{km}]\;\mathrm{GeV}.
     \label{eq:first-max}
 \end{equation}
-Maximum disappearance occurs when $\sin^2x = 1$, i.e. when $1.27\dm{}L/E = \pi/2$. Eq.~\hyperref[eq:first-max]{(\ref{eq:first-max})} follows after rearranging.
+Maximum disappearance occurs when $\sin^2x = 1$, i.e. when $1.27\dm{}L/E = \pi/2$. Equation~\hyperref[eq:first-max]{(\ref{eq:first-max})} follows after rearranging.
 
-The full picture as we know it however, is more complex. The single angle $\theta$ and single splitting $\dm{}$ used above are a simplification of the three-flavour theory. In addition, the three-flavour picture replaces the $2\times2$ unitary rotation matrix of Eq.~\hyperref[eq:two-flavour-mixing-matrix]{(\ref{eq:two-flavour-mixing-matrix})} with the more complete $3\times3$ PMNS mixing matrix. The following sections will examine its structure and parameterisations, and will expand the derivation presented here to three flavours in both the appearance and disappearance channels.
+The full picture as we know it however, is more complex. The single angle $\theta$ and single splitting $\dm{}$ used above are a simplification of the three-flavour theory. The three-flavour picture replaces the $2\times2$ unitary rotation matrix of Eq.~\hyperref[eq:two-flavour-mixing-matrix]{(\ref{eq:two-flavour-mixing-matrix})} with the more complete $3\times3$ PMNS mixing matrix. The following sections will examine its structure and parameterisations, and will expand the derivation presented here to three flavours in both the appearance and disappearance channels.
 
 % ============================================================================
 \subsection{The PMNS Matrix and Oscillation Parameters}
@@ -182,16 +190,17 @@ Multiplying these matrices gives the explicit PMNS matrix elements,
     \end{aligned}
     \label{eq:pmns-elements}
 \end{equation}
-The four mixing parameters mentioned can be seen in the above matrix, namely, the three rotation angles $\theta_{12}$, $\theta_{13}$ and $\theta_{23}$, as well as the CP-violating phase $\dcp$. This is a useful representation as each column denotes the relative proportions of each flavour eigenstate for a given mass eigenstate. The third column of the matrix provides a simple example as to how the mixing angles determine the flavour composition of the third mass eigenstate. Namely, $\theta_{13}$ determines the electron flavour contribution to $\nu_3$ as well as the combined muon and tau flavour contribution. Equivalently, $\theta_{23}$ determines the relative muon and tau flavour contributions to $\nu_3$. Whether the value of $\theta_{23}$ lies above or below $\pi/4$, the so-called upper and lower octants, respectively, is an open experimental question in neutrino physics. The case of maximal mixing, where $\theta_{23} = \pi/4$, is an interesting case that corresponds to equal contributions of these two flavours and could potentially point to an underlying $\mu-\tau$ symmetry in the neutrino sector. The $\dcp$ phase does not affect these relative flavour contributions, but become important when they enter the interference terms in the appearance probabilities. It will be shown in the next section that the PMNS matrix elements of this third row appear clearly in the leading terms of the appearance and disappearance probabilities relevant for accelerator based long-baseline experiments such as NOvA.
-The experiments that provide the current constraints on each of these parameters are discussed in Sec.~\ref{sec:landscape}.
+The four mixing parameters mentioned can be seen in the above matrix, namely, the three rotation angles $\theta_{12}$, $\theta_{13}$ and $\theta_{23}$, as well as the CP-violating phase $\dcp$. This is a useful representation as each column denotes the relative proportions of each flavour eigenstate for a given mass eigenstate. The third column of the matrix provides a simple example as to how the mixing angles determine the flavour composition of the third mass eigenstate. Namely, $\theta_{13}$ determines the electron flavour contribution to $\nu_3$ as well as the combined muon and tau flavour contribution. Equivalently, $\theta_{23}$ determines the relative muon and tau flavour contributions to $\nu_3$. Whether the value of $\theta_{23}$ lies above or below $\pi/4$, the so-called upper and lower octants, respectively, is an open experimental question in neutrino physics. The case of maximal mixing, where $\theta_{23} = \pi/4$, is an interesting case that corresponds to equal contributions of these two flavours and could potentially point to an underlying $\mu-\tau$ symmetry in the neutrino sector. The $\dcp$ phase does not affect these relative flavour contributions, but
+becomes important in the interference terms of the appearance probability. It will be shown in the next section that the PMNS matrix elements of this third column appear clearly in the leading terms of the appearance and disappearance probabilities relevant for accelerator based long-baseline experiments such as NOvA.
+The experiments that provide the current constraints on each of these parameters are discussed in Sec.~\ref{sec:landscape}, with their values obtained from a global fit summarised in Tab.~\ref{tab:nufit-params}.
 
-The two-flavour procedure can be followed here for the three-flavour picture, invoking the elements of the $3\times3$ PMNS matrix to derive the three-flavour oscillation amplitudes and probabilities. This derivation is presented in the next section.
+The two-flavour procedure can be followed for the three-flavour picture, invoking the elements of the $3\times3$ PMNS matrix to derive the three-flavour oscillation amplitudes and probabilities. This derivation is presented in the next section.
 
 % ============================================================================
 \subsection{Three-Flavour Oscillations}
 \label{sec:three-flavour}
 Generalising the two-flavour derivation to three flavours, adds complexity, but the procedure follows similar logic. 
-Combining the three-flavour eequivalent expressions of Eq. \hyperref[eq:two-flavour-mixing]{(\ref{eq:two-flavour-mixing})}, Eq. \hyperref[eq:plane-wave-solution]{(\ref{eq:plane-wave-solution})} and Eq. \hyperref[eq:phase]{(\ref{eq:phase})}, one can write the general three-flavour probability as:
+Combining the three-flavour equivalent expressions of Eq.~\hyperref[eq:two-flavour-mixing]{(\ref{eq:two-flavour-mixing})}, Eq.~\hyperref[eq:plane-wave-solution]{(\ref{eq:plane-wave-solution})} and Eq.~\hyperref[eq:phase]{(\ref{eq:phase})}, one can write the general three-flavour probability as:
 \begin{align}
     P(\nu_\alpha \to \nu_\beta) = \;\delta_{\alpha\beta}
     &- 4\sum_{i>j}\mathrm{Re}\!\left[U^{*}_{\alpha i}U_{\beta i}U_{\alpha j}U^{*}_{\beta j}\right]
@@ -200,12 +209,12 @@ Combining the three-flavour eequivalent expressions of Eq. \hyperref[eq:two-flav
         \sin\!\left(\frac{\dm{ij}L}{2E}\right),
     \label{eq:three-flavour-general}
 \end{align}
-where $\delta_{\alpha\beta}$ is the Kronecker delta. For flavour transition probabilities, $\alpha \neq \beta$, the sign of the imaginary part is flipped in the antineutrino case. Therefore, for oscillations in a vacuum, this asymmetry is a potential probe into CP violation in the lepton sector.
+where $\delta_{\alpha\beta}$ is the Kronecker delta. For flavour transition probabilities, that is, when $\alpha \neq \beta$, the sign of the imaginary part is flipped in the antineutrino case. Therefore, for oscillations in vacuum, this asymmetry is a potential probe into CP violation in the lepton sector.
 
 \subsubsection*{The muon neutrino survival probability}
 
 Conversely, setting $\beta = \alpha$ in Eq.~\hyperref[eq:three-flavour-general]{(\ref{eq:three-flavour-general})} has an immediate consequence for sensitivity to CP violation.
-The product $U^{*}_{\alpha i}U_{\alpha i}U_{\alpha j}U^{*}_{\alpha j} = |U_{\alpha i}|^{2}|U_{\alpha j}|^{2}$, which is real by definition, so there exists no imaginary term to introduce a sign change when considering antineutrinos.
+The product $U^{*}_{\alpha i}U_{\alpha i}U_{\alpha j}U^{*}_{\alpha j} = |U_{\alpha i}|^{2}|U_{\alpha j}|^{2}$, is real by definition, so there exists no imaginary term to introduce a sign change when considering antineutrinos.
 In the vacuum case therefore, survival probabilities have no $\dcp$ sensitivity.
 
 The exact $\numu$ survival probability therefore reduces to:
@@ -215,14 +224,14 @@ The exact $\numu$ survival probability therefore reduces to:
 \end{equation}
 where it is useful to write $\Delta_{ij} \equiv \dm{ij}L/4E$. Current measurements have shown that of these three
 terms in the sum, the $\Delta_{21}$ term oscillates approximately $30$ times slower
-than $\Delta_{31}$ and $\Delta_{32}$~\cite{NunokawaParkeValle2008,PDG2024}, so that
+than $\Delta_{31}$ and $\Delta_{32}$~\cite{NunokawaParkeValle2008,PDG2024}. As a result,
 $\dm{21} \ll |\dm{32}|$, which renders $\dm{31} \simeq \dm{32}$ and
-$\sin^{2}{\Delta_{21}} \simeq 0$. Using the unitarity relation, $|U_{\mu 1}|^{2} + |U_{\mu 2}|^{2} = 1 - |U_{\mu 3}|^{2}$, the survival probability is further reduced to:
+$\sin^{2}{\Delta_{21}} \simeq 0$. Using the unitarity relation, $|U_{\mu 1}|^{2} + |U_{\mu 2}|^{2} = 1 - |U_{\mu 3}|^{2}$, the survival probability can then be approximated as:
 \begin{equation}
-    P(\numu \to \numu) = 1 - 4|U_{\mu 3}|^{2}\left(1 - |U_{\mu 3}|^{2}\right)\sin^{2}\Delta_{31}.
+    P(\numu \to \numu) \simeq 1 - 4|U_{\mu 3}|^{2}\left(1 - |U_{\mu 3}|^{2}\right)\sin^{2}\Delta_{31}.
     \label{eq:pmumu-effective}
 \end{equation}
-This mirrors the two-flavour expression of Eq.~\hyperref[eq:two-flavour-survival]{(\ref{eq:two-flavour-survival})} with the amplitude $\sin^{2}2\theta_{\mu\mu} \equiv 4|U_{\mu3}|^{2}(1-|U_{\mu3}|^{2})$. It is clear therefore that the disapeparance channel informs on $|U_{\mu 3}|^{2}$, i.e. the fraction of the muon flavour carried by the third mass state, as introduced previously in Sec.~\ref{sec:pmns}.
+This mirrors the two-flavour expression of Eq.~\hyperref[eq:two-flavour-survival]{(\ref{eq:two-flavour-survival})} with the amplitude $4|U_{\mu3}|^{2}(1-|U_{\mu3}|^{2})$ replaces $\sin^{2}(2\theta)$. It is clear therefore that the disappearance channel informs on $|U_{\mu 3}|^{2}$, i.e. the fraction of the muon flavour carried by the third mass state, as introduced previously in Sec.~\ref{sec:pmns}.
 Inserting $|U_{\mu 3}|^{2} = s_{23}^{2}c_{13}^{2}$ from Eq.~\hyperref[eq:pmns-elements]{(\ref{eq:pmns-elements})} and expanding to first order by assuming $s_{13}^{2} \simeq 0$ and $c_{13}^{2} \simeq 1$, it can be shown that:
 \begin{equation}
     4s_{23}^{2}c_{13}^{2}\left(1 - s_{23}^{2}c_{13}^{2}\right)
@@ -237,7 +246,7 @@ so that
     \label{eq:pmumu-expanded}
 \end{equation}
 Dropping the final term recovers Eq.~\hyperref[eq:two-flavour-survival]{(\ref{eq:two-flavour-survival})} exactly, with $\theta \to \theta_{23}$ and $\dm{} \to \dm{32}$.
-It is therefore clear from this expression that in analogy to Figure~\ref{fig:two-flavour-survival-probability}, the amplitude of the oscillations is directly related to the mixing angle $\theta_{23}$ and the position of the dip informs the value of $\dm{32}$.
+It is therefore clear from this expression that in analogy to Fig.~\ref{fig:two-flavour-survival-probability}, the amplitude of the oscillations is directly related to the mixing angle $\theta_{23}$ and the position of the dip informs the value of $\dm{32}$.
 
 % \begin{table}[htbp]
 %     \centering
@@ -263,19 +272,21 @@ It is therefore clear from this expression that in analogy to Figure~\ref{fig:tw
 % % the parameter table is fixed, in particular the matter row, which is quoted here at the level of
 % % an upper bound rather than a computed value.
 
-Since NOvA uses this leading term expression for the survival probability, the probability is symmetric about $\theta_{23} = \pi/4$, since the amplitude $\sin^{2}2\theta_{23}$ is invariant under the transformation $\theta_{23}\rightarrow \pi/2 - \theta_{23}$. NOvA is therefore not sensitive to whether $\theta_{23}$ lies above or below $\pi/4$ (the maximal mixing case). This octant degeneracy is broken by the $\cos 2\theta_{23}$ term in the correction term of Eq.~\hyperref[eq:pmumu-expanded]{(\ref{eq:pmumu-expanded})}, but for NOvA, the disappearance channel alone is not enough to resolve this degeneracy due to the strength of the leading term.
+The leading term expression for the survival probability is symmetric about $\theta_{23} = \pi/4$, since the amplitude $\sin^{2}2\theta_{23}$ is invariant under the transformation $\theta_{23}\rightarrow \pi/2 - \theta_{23}$. The disappearance channel is therefore not sensitive to whether $\theta_{23}$ lies above or below $\pi/4$ (the maximal mixing case). This octant degeneracy is broken by the $\cos 2\theta_{23}$ term in the correction term of Eq.~\hyperref[eq:pmumu-expanded]{(\ref{eq:pmumu-expanded})}, but for NOvA, the disappearance channel alone leads to only a weak preference for the octant due to the strength of the leading term.
 
 \subsubsection*{Neutrino mass ordering}
-The general form of oscillation probablities of Eq.~\hyperref[eq:three-flavour-general]{(\ref{eq:three-flavour-general})} have dependence on the square of the $\sin$ of the mass-squared splittings $\dm{32}$. Therefore, the sign of $\dm{32}$ may not be known. 
-This is known as the neutrino mass ordering problem. That is, it is possible for the third neutirno mass state to lie above or below $\nu_1$ and $\nu_2$.
-The two possibilities are the \emph{normal ordering}, where $m_1 < m_2 < m_3$, and the \emph{inverted ordering}, where $m_3 < m_1 < m_2$. These are shown in the diagram of Figure~\ref{fig:mass-ordering}.
+The general form of oscillation probabilities of Eq.~\hyperref[eq:three-flavour-general]{(\ref{eq:three-flavour-general})} have dependence on the square of the mass-squared splittings $\dm{32}$. Therefore, the sign of $\dm{32}$ may not be known.
+The sign of $\dm{21}$ however, is known to be positive from solar neutrinos (see Sec.~\ref{sec:landscape-solar-reactor}). 
+This is known as the neutrino mass ordering problem. That is, it is possible for the third neutrino mass state to lie above or below $\nu_1$ and $\nu_2$.
+The two possibilities are known as the \emph{normal ordering}, where $m_1 < m_2 < m_3$, and the \emph{inverted ordering}, where $m_3 < m_1 < m_2$. These are shown in the diagram of Fig.~\ref{fig:mass-ordering}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.72\textwidth]{mass_ordering.pdf}
     \caption{The two possible orderings of the neutrino mass states. The solar splitting
-    $\dm{21}$ is known to be positive and is much smaller than the atmospheric splitting
-    $|\dm{32}|$, which is drawn compressed here. Shading indicates the approximate flavour
-    composition $|U_{\alpha j}|^{2}$ of each mass state.}
+    $\dm{21}$, which is known to be positive from solar neutrinos, is much smaller than the atmospheric splitting
+    $|\dm{32}|$. The shaded colours indicate the approximate flavour
+    composition $|U_{\alpha j}|^{2}$ of each mass state.
+    Adapted from Fig.~2.6 of Ref.~\cite{Booth2021}.}
     \label{fig:mass-ordering}
 \end{figure}
 
@@ -296,7 +307,7 @@ The two possibilities are the \emph{normal ordering}, where $m_1 < m_2 < m_3$, a
 The appearance channel contains and is therefore sensitive to parameters that disappearance cannot reach, and it is the origin of the degeneracies that complicate a joint fit.
 
 To derive the $\nu_e$ appearance probability, it is helpful to start from the $\nu_\mu \rightarrow \nu_e$ transition amplitude, rather than Eq.~\hyperref[eq:three-flavour-general]{(\ref{eq:three-flavour-general})}.
-As mentioned, a $\numu$ flavour state is a superposition of mass eigenstates, that each propagates with its own phase. For appearing $\nue$s, these are then projected onto the $\nue$ state when detected.
+As mentioned, a $\numu$ flavour state is a superposition of mass eigenstates, that each propagate with their own phase. For appearing $\nue$s, these are then projected onto the $\nue$ state when detected.
 In analogy to Eq.~\hyperref[eq:amplitude]{(\ref{eq:amplitude})}, the appearance amplitude can be written as a coherent sum over the three mass eigenstates,
 
 \begin{equation}
@@ -307,7 +318,7 @@ In analogy to Eq.~\hyperref[eq:amplitude]{(\ref{eq:amplitude})}, the appearance 
     \label{eq:pmue-amplitude-sum}
 \end{equation}
 
-Since $\nu_1$ and $\nu_2$ are separated by a small $\dm21$, with $\nu_3$ separated by a $\dm \approx 10^{-5}$, it can be useful to the three terms into two amplitudes. An atmospheric amplitude (one most closely associated with the fast oscillations of the term arising from the $j=3$ term) and a so called solar amplitude (the slow development of the solar phase between $\nu_1$ and $\nu_2$ allows us group these together).              
+Since $\nu_1$ and $\nu_2$ are separated by a small $\dm{21}\sim 10^{-5}\,\mathrm{eV}^{2}$, while $\nu_3$ is separated by a much larger $|\dm{31}|\sim 10^{-3}\,\mathrm{eV}^{2}$, it is useful to group the three terms into two amplitudes: an atmospheric amplitude, most closely associated with the fast oscillations of the $j=3$ term, and a so-called solar amplitude, in which the slow solar phase between $\nu_1$ and $\nu_2$ allows those two terms to be grouped together.              
 By inserting the PMNS matrix elements of Eq.~\hyperref[eq:pmns-elements]{(\ref{eq:pmns-elements})}, the atmospheric amplitude, dominated by the $\nu_3$ term can be written as:
 \begin{equation}
     A_{\rm atm} \sim U_{e3}U_{\mu 3}^{*}\,e^{-i\phi_3}
@@ -343,7 +354,7 @@ with
 The interference term depends on the relative phase of the two amplitudes, which contains both the propagation phase and $\dcp$; it is the only term in Eq.~\hyperref[eq:pmue-red]{(\ref{eq:pmue-red})} that depends on $\dcp$. Vacuum appearance measurements are therefore sensitive to CP violation, in contrast to the disappearance channel.
 The antineutrino takes the complex conjugate of the matrix elements, flipping the sign of $\dcp$ in Eq.~\hyperref[eq:pmue-red]{(\ref{eq:pmue-red})}. This interference term therefore takes a different value for neutrinos compared to antineutrinos, both vanishing when CP is conserved.
 
-Furthermore, in addition, $\theta_{23}$ enters the leading order $P_{atm}$ term via $\sin^2\theta_{23}$, in contrast to $\sin^22\theta_{23}$ in the disappearance case. The symmetry about $\pi /4$ is no longer present, which suggests that vacuum appearance data can, unlike $\numu$ disappearance can resolve the octant of $\theta_{23}$. These are vacuum expressions, however. The effect of neutrinos travelling through matter is particularly important for the appearance channel. The following subsection touches on how neutrino propagation through matter changes the oscillation probability.
+Furthermore, in addition, $\theta_{23}$ enters the leading order $P_{atm}$ term via $\sin^2\theta_{23}$, in contrast to $\sin^22\theta_{23}$ in the disappearance case. The symmetry about $\pi /4$ is no longer present, which suggests that vacuum appearance data can, unlike $\numu$ disappearance can resolve the octant of $\theta_{23}$. These are vacuum expressions. The effect of neutrinos travelling through matter is particularly important for the appearance channel. The following subsection touches on how neutrino propagation through matter changes the oscillation probability.
 
 
 
@@ -360,8 +371,19 @@ Furthermore, in addition, $\theta_{23}$ enters the leading order $P_{atm}$ term 
 So far, the probability expressions, statements and derivations made above have assumed neutrino propagation in vacuum. 
 In practice however, neutrinos propagate through matter, whether through the Earth, or through the Sun. As they travel, they undergo coherent forward elastic scattering from the matter particles. 
 Since this is elastic scattering, their momenta are unchanged. 
-However, matter consists almost entirely of electrons, rather than $\mu$ or $\tau$ leptons. Therefore, $\nue$s have access to these additional charged-current scattering interactions. As they propagate, they accumulate an additional relative phase, which is observable \cite{Wolfenstein1978,Mikheyev1985,Mikola2023}.
-Figure~\ref{fig:matter-scattering} shows these two additional scattering processes for $\nue$s (left and centre). The right diagram shows the neutral-current process, which has equal probability for all three flavours.
+However, since matter consists almost entirely of electrons, rather than $\mu$ or $\tau$ leptons, $\nue$s have access to additional charged-current scattering interactions. As they propagate, they accumulate an additional relative phase, which is observable \cite{Wolfenstein1978,Mikheyev1985,Mikola2023}.
+Figure~\ref{fig:matter-scattering} shows the CC processes unique to the electron flavour (left and middle), while the NC process (right) occurs with equal probability for all three flavours.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.98\textwidth]{booth_matter_scattering.pdf}
+    \caption{Charged-current (left and middle) and neutral-current (right) coherent
+    scattering of neutrinos or antineutrinos on electrons. The NC channel occurs
+    equally for all neutrino flavours, whereas CC scattering is unique to the
+    electron flavour. Reproduced from Fig.~2.5 of Ref.~\cite{Booth2021},
+    originally from Ref.~\cite{Mendez2019}.}
+    \label{fig:matter-scattering}
+\end{figure}
 
 In the case of $\nue$, this manifests as an additional potential energy term that enters the Hamiltonian, given by:
 
@@ -371,7 +393,6 @@ In the case of $\nue$, this manifests as an additional potential energy term tha
 \end{equation}
 with $N_e$ being the electron number density and $G_F$ the Fermi constant. The positive sign is for neutrinos and the negative sign is for antineutrinos. 
 The NC phase shift is a global one, as it applies to all three flavours equally, so no relative phase accumulates and the oscillation probability is unaffected.
-Neutral-current scattering gives every flavour the same shift, so it does not change their relative phases and therefore does not change the oscillation probability.
 
 The simpler case of two-flavours is considered to understand the effect of $V_{\rm CC}$. In the mass basis, the vacuum Hamiltonian is diagonal. Using the two-flavour mixing matrix $U_2$ introduced in
 Eq.~\hyperref[eq:two-flavour-mixing-matrix]{(\ref{eq:two-flavour-mixing-matrix})},
@@ -422,7 +443,7 @@ At NOvA, the matter effect enhances the appearance probability for the normal or
     \label{fig:nova-matter-probability}
 \end{figure}
 
-Considering the first oscillation maximum of Figure~\ref{fig:nova-matter-probability}, it is clear that with the inclusion of matter effects, the appearance probability is enhanced for the normal ordering hypothesis and it is suppresed for the inverted ordering case. The shaded regions show that varying the value of $\dcp$ can also shift the appearance probability in both directions. As a consequence, a normal ordering hypothesis with a $\dcp$ value that lowers the appearance probability can be such that it is consistent with an inverted ordering hypothesis with a different $\dcp$ value enhances the apeparance probability. This leads to a degeneracy between the mass ordering and $\dcp$. Measuring an appearance probability near the vacuum curve or the shaded overlap region does not allow for either the mass ordering  The addition of antineutrino appearance data would help to resolve this degeneracy. This is due to both the matter potential, $V_{\rm CC}$, and the CP violating term, $\dcp$ changing sign relative to the neutrino case. Combinations of mass ordering and $\dcp$ values that give the same neutrino appearance probability will give different probabilities for the antineutrino case.
+Considering the first oscillation maximum of Fig.~\ref{fig:nova-matter-probability}, the shaded regions show that varying the value of $\dcp$ can shift the appearance probability in both directions. As a consequence, a normal ordering hypothesis with a $\dcp$ value that lowers the appearance probability can be consistent with an inverted ordering hypothesis with a different $\dcp$ value that enhances the appearance probability. This leads to a degeneracy between the mass ordering and $\dcp$. Measuring an appearance probability near the vacuum curve or the shaded overlap region does not allow either the mass ordering or $\dcp$ to be uniquely determined. The addition of antineutrino appearance data would help to resolve this degeneracy. This is due to both the matter potential, $V_{\rm CC}$, and the CP violating term, $\dcp$ changing sign relative to the neutrino case. Combinations of mass ordering and $\dcp$ values that give the same neutrino appearance probability will give different probabilities for the antineutrino case.
 
 The combination of neutrino and antineutrino appearance data helps to disentangle this degeneracy, but with current low statistics, the mass ordering and $\dcp$ questions remain open. 
 Section~\ref{sec:landscape} touches on some experiments that contrain the parameters belonging to each sector.  

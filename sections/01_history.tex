@@ -1,4 +1,7 @@
 % !TEX root = ../main.tex
+Neutrinos are elementary particles of the Standard Model (SM). They are electrically neutral leptons that come 
+in three flavours, corresponding to the electron, muon and tau charged leptons. Neutrinos have been observed to oscillate or change between these flavours as they propagate, a fact that implies that neutrinos, contrary to the SM prediction, are massive. This chapter begins with a brief history of the neutrino, from its postulate to the discovery of the three flavours and the observation of oscillations. It then places the neutrino in the SM, developing the theory of flavour mixing and oscillations, and reviews the experimental landscape, including three remaining open questions, namely, the mass ordering, the octant of $\theta_{23}$, and the value of $\dcp$.
+
 \section{A Brief History of the Neutrino}
 \label{sec:history}
 
@@ -12,39 +15,38 @@ This behaviour was observed in both $\alpha$- and $\gamma$-decays:
     {}^{A}_{Z}X^{*} &\rightarrow {}^{A}_{Z}X + \gamma.
     \label{eq:gamma-decay}
 \end{align}
-In $\alpha$-decay \hyperref[eq:alpha-decay]{(\ref{eq:alpha-decay})}, the fixed energy of the emitted $\alpha$ particle is determined by the two-body kinematics of the decay process.
-Similarly, the discrete energy spectrum of $\gamma$-decay \hyperref[eq:gamma-decay]{(\ref{eq:gamma-decay})} arises from the de-excitation of the nucleus to a lower energy state, where the difference between the two energy levels corresponds to the emitted photon energy.
-This understanding therefore left James Chadwick puzzled when he discovered, in 1914, that the energy spectrum of the emitted electron in the $\beta$-decay \hyperref[eq:beta-decay]{(\ref{eq:beta-decay})} process, then assumed to be a two-body process, was continuous~\cite{Chadwick1914,Zuber2020}.
+In $\alpha$-decay (Eq.~\ref{eq:alpha-decay}), the fixed energy of the emitted $\alpha$ particle is determined by the two-body kinematics of the decay process.
+Similarly, the discrete energy spectrum of $\gamma$-decay (Eq.~\ref{eq:gamma-decay}) arises from the de-excitation of the nucleus to a lower energy state, where the difference between the two energy levels corresponds to the emitted photon energy.
+This understanding therefore left James Chadwick puzzled when he discovered, in 1914, that the energy spectrum of the emitted electron in $\beta$-decay, then assumed to be the two-body process
 \begin{equation}
-    {}^{A}_{Z}X \rightarrow {}^{A}_{Z+1}Y + e^{-}.
+    {}^{A}_{Z}X \rightarrow {}^{A}_{Z+1}Y + e^{-},
     \label{eq:beta-decay}
 \end{equation}
-The implications of this observation were only addressed in 1930 by Wolfgang Pauli, who proposed that there must be another neutral particle in the final state of this decay.
-In addition to resolving the apparent violation of energy conservation, Pauli's postulate also provided a solution to the fact that the decay could not just emit one spin-$\frac{1}{2}$ particle (a fermion), but must emit another.
-Pauli provisionally named this neutral fermion the neutron; it was later renamed the neutrino by Fermi.
+was continuous~\cite{Chadwick1914,Zuber2020}.
+The implications of this observation were only addressed in 1930 by Wolfgang Pauli, who proposed that there must be another neutral particle in the final state, so that $\beta$-decay proceeds as
 \begin{equation}
     {}^{A}_{Z}X \rightarrow {}^{A}_{Z+1}Y + e^{-} + \bar{\nu}_e.
     \label{eq:beta-decay-threebody}
-\end{equation} 
+\end{equation}
+In addition to resolving the apparent violation of energy conservation, Pauli's postulate also provided a solution to the fact that the decay could not just emit one spin-$\frac{1}{2}$ particle (a fermion), but must emit another.
+Pauli provisionally named this neutral fermion the neutron; it was later renamed the neutrino by Fermi. 
 
 \subsection{First Direct Neutrino Detection and Discovery}
-The first direct detection of the neutrino was made in 1956 by Clyde Cowan and Frederick Reines~\cite{ReinesCowan1953,CowanReines1956}. 
-They placed two large tanks of water, each between two liquid scintillator layers, equipped with Photo-Multiplier Tubes (PMTs), near a nuclear reactor. 
-The reactor provided a huge neutrino flux, with the protons in the water being the target.
-As an incoming neutrino interacts with a proton, a neutron and a positron are produced via the process of inverse beta decay.
+The first direct detection of the electron antineutrino was made in 1956 by Clyde Cowan and Frederick Reines~\cite{ReinesCowan1953,CowanReines1956}.
+They used a water tank and layers of liquid scintillators, placed near a nuclear reactor, which provided a large antineutrino flux.
+An incoming antineutrino interacting with a proton produces a neutron and a positron via inverse beta decay:
 \begin{equation}
     p + \overline{\nu}_e \rightarrow n + e^{+}.
     \label{eq:inverse-beta-decay}
 \end{equation}
-Two 511 keV gamma rays are produced when the positron annihilates with an electron in the water. 
-These gammas enter the scintillator material and are then detected by the PMTs.
-In addition, to improve their measurement, the water was doped with Cadmium Chloride, which is an effective neutron absorber.
-Photons from the neutron capture by Cadmium are also detected by the PMTs~\cite{Zuber2020}.
-The detection of the 511 keV gammas, followed shortly (a few $\mu$s) by detection of the neutron capture photon, provided a clear signal of the neutrino-proton interaction.
-Reines was awarded the Nobel Prize in Physics in 1995 for this discovery.
+Two gamma rays are produced when the positron annihilates with an
+electron. The detection of these gammas, followed shortly (a few
+$\mu$s) by detection of the neutron capture photon, provided a clear
+signal of the neutrino-proton interaction.
+Reines was awarded the Nobel Prize in Physics in 1995 for the discovery of the electron antineutrino.
 
 \subsection{$\nu_{\mu}$ and $\nu_{\tau}$ Discovery}
-Further to Reines and Cowan's discovery, it was understood that reactor and $\beta$-decay neutrinos were associated with an electron (or a $\beta$ particle)~\cite{CowanReines1956}~\hyperref[eq:inverse-beta-decay]{(\ref{eq:inverse-beta-decay})}. 
+Further to Reines and Cowan's discovery, it was understood that reactor and $\beta$-decay neutrinos were associated with an electron (or a $\beta$ particle)~\cite{CowanReines1956} (Eq.~\ref{eq:inverse-beta-decay}). 
 In contrast, the question remained as to whether the neutrino resulting from pion decay, produced alongside a muon, was the same neutrino as that of $\beta$-decay~\cite{Feinberg1958,Pontecorvo1960}. 
 To answer this, in 1962 Lederman, Schwartz, Steinberger and collaborators at Brookhaven National Laboratory used the world's first accelerator-based neutrino beam~\cite{Danby1962}. 
 Accelerated protons were collided with a target to produce pions, which subsequently
@@ -74,12 +76,20 @@ Although neutrino oscillations had already been proposed in the previous year, t
 The solar neutrino deficit was later confirmed by the Kamiokande, SAGE and GALLEX experiments~\cite{Hirata1990,Abazov1991,Anselmann1992}.
 
 A second discrepancy emerged from the measurement of the atmospheric neutrino flux.
-These neutrinos are produced when cosmic rays interact with Earth's atmosphere, producing charged pions and kaons, which subsequently decay into muon neutrinos.
+These neutrinos are produced when cosmic rays interact with Earth's
+atmosphere, producing charged pions and kaons, which subsequently decay
+into muons and muon neutrinos. The muons eventually also decay into
+electrons, muon neutrinos and electron neutrinos.
 The observed muon neutrino flux was lower than expected.
 In 1998, the Super-Kamiokande experiment (SK) reported that this deficit exhibited a dependence on the zenith angle, and therefore the distance travelled by the neutrinos through the Earth.
 This path length dependence was the first compelling evidence for neutrino oscillations~\cite{Fukuda1998}.
 
 In 2002, the Sudbury Neutrino Observatory (SNO) showed that the total solar neutrino flux was consistent with the SSM, while showing the same electron neutrino flux as previous experiments claiming a deficit.
-This suggested that the electron neutrinos produced in the Sun must have undergone flavour transformation as they travelled through the Sun and to the Earth, hence resolving the Solar Neutrino Problem~\cite{Ahmad2002}.
+The total solar neutrino flux was measured via the neutral-current (NC)
+interaction, which does not allow for flavour determination and occurs
+for all flavours, while the electron neutrino flux was measured via the
+charged-current (CC) interaction by measuring the final-state electron.
+This suggested that solar electron neutrinos must have undergone flavour transformation as they travelled through the Sun and to the Earth, hence resolving the Solar Neutrino Problem~\cite{Ahmad2002}.
+The full interpretation of the SNO result also requires the matter effect, which will be introduced in Sec.~\ref{sec:matter}.
 
 
